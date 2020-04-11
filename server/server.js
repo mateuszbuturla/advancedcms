@@ -11,8 +11,8 @@ const port = process.env.PORT || 4000;
 
 const userData = {
     userId: "1",
-    password: "qwertyui",
-    username: "Admin",
+    password: "a",
+    username: "a",
 };
 
 app.use(cors());
