@@ -10,6 +10,15 @@ class EditHomePage extends React.Component {
         content: [],
     }
 
+    componentDidMount() {
+        axios.get('http://localhost:4000/api/gethomepage')
+            .then(response => {
+                this.setState({ content: response.data.homePage.elements })
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     addText() {
         let newContent = this.state.content;
         newContent.push({ type: 'text', text: '' })
