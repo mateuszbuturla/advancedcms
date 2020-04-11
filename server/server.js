@@ -4,6 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+const serverRouter = require('./server.router');
 const utils = require('./utils');
 
 const app = express();
@@ -37,9 +39,13 @@ app.use(function (req, res, next) {
     });
 });
 
+mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true });
+const db = mongoose.connection;
+global.db = db;
+
 app.get('/', (req, res) => {
     if (!req.user) return res.status(401).json({ success: false, message: 'Invalid user to access it.' });
-    res.send('Welcome to the Node.js Tutorial! - ' + req.user.name);
+    res.send('');
 });
 
 app.post('/users/signin', function (req, res) {
@@ -91,6 +97,13 @@ app.get('/verifyToken', function (req, res) {
         return res.json({ user: userObj, token });
     });
 });
+
+db.once('open', () => {
+    console.log('Connected to the database');
+});
+db.on('error', (err) => console.log('Error ' + err));
+
+serverRouter(app);
 
 app.listen(port, () => {
     console.log('Server started on: ' + port);

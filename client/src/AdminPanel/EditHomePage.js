@@ -26,6 +26,15 @@ class EditHomePage extends React.Component {
         this.setState({ content: changeElementPositionInArray(this.state.content, e.target.id, e.target.dataset.direction) })
     }
 
+    saveChanges() {
+        axios.post('http://localhost:4000/api/edithomepage', { content: this.state.content })
+            .then(response => {
+                console.log(response.status)
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { content } = this.state;
 
@@ -46,6 +55,9 @@ class EditHomePage extends React.Component {
                 <hr />
                 <button onClick={this.addText.bind(this)}>
                     Add Text
+                </button>
+                <button onClick={this.saveChanges.bind(this)}>
+                    Save
                 </button>
             </div>
         );
