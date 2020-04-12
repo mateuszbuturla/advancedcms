@@ -1,6 +1,11 @@
 const subpageModel = require('../models/subpageModel');
 const mongoose = require('mongoose');
 
+exports.getAllSubpages = async (req, res) => {
+    const findSubpages = await subpageModel.find({});
+    res.status(200).json({ subpages: findSubpages })
+}
+
 exports.editCreateSubpage = async (req, res) => {
     const name = req.body.name;
     const content = req.body.content;

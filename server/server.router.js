@@ -7,4 +7,5 @@ module.exports = (app) => {
     app.get('/api/gethomepage', homePageController.getHomePage);
 
     app.post('/api/editcreatesubpage', subpageController.editCreateSubpage);
+    app.get('/api/getallsubpages', subpageController.getAllSubpages);
 }
