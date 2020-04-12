@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { changeElementPositionInArray } from '../Utils/Common';
 
 import EditText from '../Components/AdminPanel/EditText';
 
@@ -21,6 +22,10 @@ class EditHomePage extends React.Component {
         this.setState({ content: newContent })
     }
 
+    handleChangeElementPosition(e) {
+        this.setState({ content: changeElementPositionInArray(this.state.content, e.target.id, e.target.dataset.direction) })
+    }
+
     render() {
         const { content } = this.state;
 
@@ -28,6 +33,7 @@ class EditHomePage extends React.Component {
             <EditText
                 key={index}
                 handleChangeText={this.handleChangeText.bind(this)}
+                handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 value={element.text}
                 id={index}
             />)
