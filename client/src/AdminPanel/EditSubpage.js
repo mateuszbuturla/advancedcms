@@ -7,7 +7,12 @@ import EditText from '../Components/AdminPanel/EditText';
 class EditHomePage extends React.Component {
 
     state = {
+        name: '',
         content: [],
+    }
+
+    handleNameChange(e) {
+        this.setState({ name: e.target.value });
     }
 
     addText() {
@@ -26,8 +31,17 @@ class EditHomePage extends React.Component {
         this.setState({ content: changeElementPositionInArray(this.state.content, e.target.id, e.target.dataset.direction) })
     }
 
+    saveChanges() {
+        axios.post('http://localhost:4000/api/editcreatesubpage', { name: this.state.name, content: this.state.content })
+            .then(response => {
+                console.log(response.status)
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
-        const { content } = this.state;
+        const { content, name } = this.state;
 
         const elements = content.map((element, index) =>
             <EditText
@@ -41,12 +55,15 @@ class EditHomePage extends React.Component {
         return (
             <div>
                 <h2>Edit Subpage</h2>
-                <input type="text" placeholder="Subpage name" />
+                <input type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
                 <hr />
                 {elements}
                 <hr />
                 <button onClick={this.addText.bind(this)}>
                     Add Text
+                </button>
+                <button onClick={this.saveChanges.bind(this)}>
+                    Save
                 </button>
             </div>
         );
