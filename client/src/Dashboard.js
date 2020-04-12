@@ -4,7 +4,8 @@ import { getUser, removeUserSession } from './Utils/Common';
 import axios from 'axios';
 
 import EditHomePage from './AdminPanel/EditHomePage';
-import CreateSubpage from './AdminPanel/EditSubpage';
+import CreateSubpage from './AdminPanel/CreateSubpage';
+import EditSubpage from './AdminPanel/EditSubpage';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);
@@ -41,6 +42,7 @@ function Dashboard(props) {
             <Switch>
                 <Route exact path="/dashboard/edithomepage" component={EditHomePage} />
                 <Route exact path="/dashboard/createsubpage" component={CreateSubpage} />
+                <Route exact path="/dashboard/editsubpage/:id" component={EditSubpage} />
             </Switch>
         </div>
     );

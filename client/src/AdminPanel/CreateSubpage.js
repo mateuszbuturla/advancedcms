@@ -4,7 +4,7 @@ import { changeElementPositionInArray } from '../Utils/Common';
 
 import EditText from '../Components/AdminPanel/EditText';
 
-class EditSubpage extends React.Component {
+class CreateSubpage extends React.Component {
 
     state = {
         name: '',
@@ -31,6 +31,15 @@ class EditSubpage extends React.Component {
         this.setState({ content: changeElementPositionInArray(this.state.content, e.target.id, e.target.dataset.direction) })
     }
 
+    saveChanges() {
+        axios.post('http://localhost:4000/api/editcreatesubpage', { name: this.state.name, content: this.state.content })
+            .then(response => {
+                console.log(response.status)
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { content, name } = this.state;
 
@@ -45,7 +54,7 @@ class EditSubpage extends React.Component {
 
         return (
             <div>
-                <h2>Edit Subpage</h2>
+                <h2>Create Subpage</h2>
                 <input type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
                 <hr />
                 {elements}
@@ -53,9 +62,12 @@ class EditSubpage extends React.Component {
                 <button onClick={this.addText.bind(this)}>
                     Add Text
                 </button>
+                <button onClick={this.saveChanges.bind(this)}>
+                    Save
+                </button>
             </div>
         );
     }
 }
 
-export default EditSubpage;
+export default CreateSubpage;
