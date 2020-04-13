@@ -7,8 +7,24 @@ import EditText from '../Components/AdminPanel/EditText';
 class EditSubpage extends React.Component {
 
     state = {
+        subpage: null,
         name: '',
         content: [],
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        axios.post('http://localhost:4000/api/getonesubpage', { id: id })
+            .then(response => {
+                if (response.data.subpage.length > 0) {
+                    this.setState({ subpage: response.data.subpage[0], name: response.data.subpage[0].name, content: response.data.subpage[0].elements })
+                }
+                else {
+                    this.props.history.push('/dashboard/createsubpage');
+                }
+            }).catch(error => {
+                console.log('error')
+            });
     }
 
     handleNameChange(e) {
