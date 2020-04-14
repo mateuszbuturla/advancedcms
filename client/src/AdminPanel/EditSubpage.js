@@ -13,6 +13,17 @@ class EditSubpage extends React.Component {
     }
 
     componentDidMount() {
+        this.getSubpageData();
+    }
+
+    componentDidUpdate() {
+        const id = this.props.match.params.id;
+        if (id !== this.state.subpage._id) {
+            this.getSubpageData();
+        }
+    }
+
+    getSubpageData() {
         const id = this.props.match.params.id;
         axios.post('http://localhost:4000/api/getonesubpage', { id: id })
             .then(response => {
