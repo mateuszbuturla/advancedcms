@@ -24,7 +24,7 @@ function EditMainNavLink(props) {
 
     return (
         <div>
-            <select onChange={props.handleChangeText} value={props.value} id={props.id} name="subpageSelect">
+            <select onChange={props.handleSelectChane} value={props.value} id={props.id} name="subpageSelect">
                 <option value="homepage">Home Page</option>
                 {subpagesOptions}
             </select>
