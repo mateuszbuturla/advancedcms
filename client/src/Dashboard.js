@@ -28,9 +28,9 @@ function Dashboard(props) {
     }
 
     const subpagesLinks = subpages.map((element, index) =>
-        <>
+        <div key={index} >
             <NavLink to={`/dashboard/editsubpage/${element._id}`}>{element.name}</NavLink><br />
-        </>)
+        </div>)
 
     return (
         <div>
