@@ -4,6 +4,7 @@ const subpageController = require('./controllers/subpageController');
 
 module.exports = (app) => {
 
+    app.get('/api/getmainNav', mainNavController.getMainNav);
     app.post('/api/editmainnav', mainNavController.editMainNav);
 
     app.get('/api/gethomepage', homePageController.getHomePage);
