@@ -3,6 +3,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import { getUser, removeUserSession } from './Utils/Common';
 import axios from 'axios';
 
+import EditMainNav from './AdminPanel/EditMainNav';
 import EditHomePage from './AdminPanel/EditHomePage';
 import CreateSubpage from './AdminPanel/CreateSubpage';
 import EditSubpage from './AdminPanel/EditSubpage';
@@ -34,12 +35,14 @@ function Dashboard(props) {
     return (
         <div>
             <p>Advanced CMS Dashboard</p>
+            <NavLink to="/dashboard/editmainnav">Edit Main Nav</NavLink><br />
             <NavLink to="/dashboard/edithomepage">Edit Home Page</NavLink><br />
             <NavLink to="/dashboard/createsubpage">Create subpage</NavLink><br />
             <a>Subpages</a><br />
             {subpagesLinks}
             <input type="button" onClick={handleLogout} value="Logout" />
             <Switch>
+                <Route exact path="/dashboard/editmainnav" component={EditMainNav} />
                 <Route exact path="/dashboard/edithomepage" component={EditHomePage} />
                 <Route exact path="/dashboard/createsubpage" component={CreateSubpage} />
                 <Route exact path="/dashboard/editsubpage/:id" component={EditSubpage} />
