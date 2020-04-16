@@ -10,6 +10,15 @@ class EditMainNav extends React.Component {
         links: [],
     }
 
+    componentDidMount() {
+        axios.get('http://localhost:4000/api/getmainNav')
+            .then(response => {
+                this.setState({ links: response.data.mainNav.elements })
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     addLink() {
         let newLinks = this.state.links;
         newLinks.push({ type: 'mainNavLink', text: '' })
