@@ -1,7 +1,10 @@
+const mainNavController = require('./controllers/mainNavController');
 const homePageController = require('./controllers/homePageController');
 const subpageController = require('./controllers/subpageController');
 
 module.exports = (app) => {
+
+    app.post('/api/editmainnav', mainNavController.editMainNav);
 
     app.get('/api/gethomepage', homePageController.getHomePage);
     app.post('/api/edithomepage', homePageController.editHomePage);
