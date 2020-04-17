@@ -13,4 +13,5 @@ module.exports = (app) => {
     app.post('/api/getonesubpage', subpageController.getOneSubpages);
     app.get('/api/getallsubpages', subpageController.getAllSubpages);
     app.post('/api/editcreatesubpage', subpageController.editCreateSubpage);
+    app.post('/api/removesubpage', subpageController.removeSubpage);
 }

@@ -33,3 +33,13 @@ exports.editCreateSubpage = async (req, res) => {
         })
     }
 }
+
+exports.removeSubpage = async (req, res) => {
+    const id = req.body.id;
+    subpageModel.deleteOne({ _id: id }, (err) => {
+        if (err)
+            return res.status(500);
+
+        res.status(200).json({});
+    })
+}
