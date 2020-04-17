@@ -75,6 +75,15 @@ class EditSubpage extends React.Component {
             });
     }
 
+    removeSubpage() {
+        axios.post('http://localhost:4000/api/removesubpage', { id: this.state.subpage._id })
+            .then(response => {
+                console.log(response.status)
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { content, name } = this.state;
 
@@ -100,6 +109,9 @@ class EditSubpage extends React.Component {
                 </button>
                 <button onClick={this.saveChanges.bind(this)}>
                     Save
+                </button>
+                <button onClick={this.removeSubpage.bind(this)}>
+                    Remove
                 </button>
             </div>
         );
