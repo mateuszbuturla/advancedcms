@@ -58,6 +58,14 @@ class EditSubpage extends React.Component {
         this.setState({ content: changeElementPositionInArray(this.state.content, e.target.id, e.target.dataset.direction) })
     }
 
+    handleRemoveElement(e) {
+        const { content } = this.state;
+        let newContent = content;
+
+        newContent.splice(e.target.id, 1);
+        this.setState({ content: newContent })
+    }
+
     saveChanges() {
         axios.post('http://localhost:4000/api/editcreatesubpage', { name: this.state.name, content: this.state.content })
             .then(response => {
@@ -75,6 +83,7 @@ class EditSubpage extends React.Component {
                 key={index}
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
+                handleRemoveElement={this.handleRemoveElement.bind(this)}
                 value={element.text}
                 id={index}
             />)
