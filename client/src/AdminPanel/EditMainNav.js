@@ -35,6 +35,14 @@ class EditMainNav extends React.Component {
         this.setState({ links: changeElementPositionInArray(this.state.links, e.target.id, e.target.dataset.direction) })
     }
 
+    handleRemoveLink(e) {
+        const { links } = this.state;
+        let newLinks = links;
+
+        newLinks.splice(e.target.id, 1);
+        this.setState({ links: newLinks })
+    }
+
     saveChanges() {
         axios.post('http://localhost:4000/api/editmainnav', { content: this.state.links })
             .then(response => {
@@ -52,6 +60,7 @@ class EditMainNav extends React.Component {
                 key={index}
                 handleSelectChane={this.handleSelectChane.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
+                handleRemoveLink={this.handleRemoveLink.bind(this)}
                 value={element.text}
                 id={index}
             />)
