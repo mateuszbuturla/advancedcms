@@ -67,7 +67,7 @@ class EditSubpage extends React.Component {
     }
 
     saveChanges() {
-        axios.post('http://localhost:4000/api/editcreatesubpage', { name: this.state.name, content: this.state.content })
+        axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
             .then(response => {
                 console.log(response.status)
             }).catch(error => {
