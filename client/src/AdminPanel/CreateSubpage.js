@@ -40,9 +40,12 @@ class CreateSubpage extends React.Component {
     }
 
     saveChanges() {
+        const { refreshDashboard } = this.props;
+
         axios.post('http://localhost:4000/api/editcreatesubpage', { name: this.state.name, content: this.state.content })
             .then(response => {
                 console.log(response.status)
+                refreshDashboard();
             }).catch(error => {
                 console.log('error')
             });

@@ -13,13 +13,17 @@ function Dashboard(props) {
 
     const user = getUser();
 
-    useEffect(() => {
+    const getData = () => {
         axios.get('http://localhost:4000/api/getallsubpages')
             .then(response => {
                 setSubpages(response.data.subpages)
             }).catch(error => {
                 console.log('error')
             });
+    }
+
+    useEffect(() => {
+        getData();
     }, [])
 
     const handleLogout = () => {
@@ -42,10 +46,10 @@ function Dashboard(props) {
             {subpagesLinks}
             <input type="button" onClick={handleLogout} value="Logout" />
             <Switch>
-                <Route exact path="/dashboard/editmainnav" component={EditMainNav} />
-                <Route exact path="/dashboard/edithomepage" component={EditHomePage} />
-                <Route exact path="/dashboard/createsubpage" component={CreateSubpage} />
-                <Route exact path="/dashboard/editsubpage/:id" component={EditSubpage} />
+                <Route exact path="/dashboard/editmainnav" component={props => <EditMainNav {...props} refreshDashboard={getData} />} />
+                <Route exact path="/dashboard/edithomepage" component={props => <EditHomePage {...props} refreshDashboard={getData} />} />
+                <Route exact path="/dashboard/createsubpage" component={props => <CreateSubpage {...props} refreshDashboard={getData} />} />
+                <Route exact path="/dashboard/editsubpage/:id" component={props => <EditSubpage {...props} refreshDashboard={getData} />} />
             </Switch>
         </div>
     );

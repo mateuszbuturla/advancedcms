@@ -67,18 +67,24 @@ class EditSubpage extends React.Component {
     }
 
     saveChanges() {
+        const { refreshDashboard } = this.props;
+
         axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
             .then(response => {
                 console.log(response.status)
+                refreshDashboard();
             }).catch(error => {
                 console.log('error')
             });
     }
 
     removeSubpage() {
+        const { refreshDashboard } = this.props;
+
         axios.post('http://localhost:4000/api/removesubpage', { id: this.state.subpage._id })
             .then(response => {
                 console.log(response.status)
+                refreshDashboard();
             }).catch(error => {
                 console.log('error')
             });
