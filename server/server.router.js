@@ -16,5 +16,6 @@ module.exports = (app) => {
     app.post('/api/editcreatesubpage', subpageController.editCreateSubpage);
     app.post('/api/removesubpage', subpageController.removeSubpage);
 
+    app.get('/api/getallnavigations', navigationController.getAllNavigations);
     app.post('/api/editcreatenavigation', navigationController.editCreateNavigation);
 }
