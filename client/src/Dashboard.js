@@ -11,6 +11,7 @@ import CreateNavigation from './AdminPanel/CreateNavigation';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);
+    const [navigations, setNavigations] = useState([]);
 
     const user = getUser();
 
@@ -18,6 +19,13 @@ function Dashboard(props) {
         axios.get('http://localhost:4000/api/getallsubpages')
             .then(response => {
                 setSubpages(response.data.subpages)
+            }).catch(error => {
+                console.log('error')
+            });
+
+        axios.get('http://localhost:4000/api/getallnavigations')
+            .then(response => {
+                setNavigations(response.data.navigations)
             }).catch(error => {
                 console.log('error')
             });
@@ -37,6 +45,11 @@ function Dashboard(props) {
             <NavLink to={`/dashboard/editsubpage/${element._id}`}>{element.name}</NavLink><br />
         </div>)
 
+    const navigationsLinks = navigations.map((element, index) =>
+        <div key={index} >
+            <NavLink to={`/dashboard/editnavigation/${element._id}`}>{element.name}</NavLink><br />
+        </div>)
+
     return (
         <div>
             <p>Advanced CMS Dashboard</p>
@@ -46,6 +59,8 @@ function Dashboard(props) {
             <NavLink to="/dashboard/createnavigation">Create navigation</NavLink><br />
             <a>Subpages</a><br />
             {subpagesLinks}
+            <a>Navigations</a><br />
+            {navigationsLinks}
             <input type="button" onClick={handleLogout} value="Logout" />
             <Switch>
                 <Route exact path="/dashboard/editmainnav" component={props => <EditMainNav {...props} refreshDashboard={getData} />} />
