@@ -1,6 +1,12 @@
 const navigationsModel = require('../models/navigationsModel');
 const mongoose = require('mongoose');
 
+exports.getNavigationByID = async (req, res) => {
+    const id = req.body.id;
+    const findNavigation = await navigationsModel.find({ _id: id });
+    res.status(200).json({ navigation: findNavigation })
+}
+
 exports.getAllNavigations = async (req, res) => {
     const findNavigation = await navigationsModel.find({});
     res.status(200).json({ navigations: findNavigation })
