@@ -8,6 +8,7 @@ import EditHomePage from './AdminPanel/EditHomePage';
 import CreateSubpage from './AdminPanel/CreateSubpage';
 import EditSubpage from './AdminPanel/EditSubpage';
 import CreateNavigation from './AdminPanel/CreateNavigation';
+import EditNavigation from './AdminPanel/EditNavigation';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);
@@ -68,6 +69,7 @@ function Dashboard(props) {
                 <Route exact path="/dashboard/createsubpage" component={props => <CreateSubpage {...props} refreshDashboard={getData} />} />
                 <Route exact path="/dashboard/editsubpage/:id" component={props => <EditSubpage {...props} refreshDashboard={getData} />} />
                 <Route exact path="/dashboard/createnavigation" component={props => <CreateNavigation {...props} refreshDashboard={getData} />} />
+                <Route exact path="/dashboard/editnavigation/:id" component={props => <EditNavigation {...props} refreshDashboard={getData} />} />
             </Switch>
         </div>
     );
