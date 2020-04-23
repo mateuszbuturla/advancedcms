@@ -7,8 +7,36 @@ import EditMainNavLink from '../Components/AdminPanel/EditMainNavLink';
 class EditNavigation extends React.Component {
 
     state = {
+        navigation: null,
         name: '',
         links: [],
+    }
+
+    componentDidMount() {
+        this.getNavigationData();
+    }
+
+    componentDidUpdate() {
+        const id = this.props.match.params.id;
+        if (id !== this.state.navigation._id) {
+            this.getNavigationData();
+        }
+    }
+
+    getNavigationData() {
+        const id = this.props.match.params.id;
+        axios.post('http://localhost:4000/api/getnavigationbyid', { id: id })
+            .then(response => {
+                console.log(response.data)
+                if (response.data.navigation.length > 0) {
+                    this.setState({ navigation: response.data.navigation[0], name: response.data.navigation[0].name, links: response.data.navigation[0].links })
+                }
+                else {
+                    this.props.history.push('/dashboard/createnavigation');
+                }
+            }).catch(error => {
+                console.log('error')
+            });
     }
 
     handleNameChange(e) {
