@@ -16,8 +16,9 @@ exports.editCreateNavigation = async (req, res) => {
     const id = req.body.id;
     const name = req.body.name;
     const links = req.body.links;
+    console.log(id, name, links)
     if (id !== '') {
-        const findNavigation = await subpageModel.find({ _id: id });
+        const findNavigation = await navigationsModel.find({ _id: id });
         if (findNavigation.length > 0) {
             navigationsModel.updateOne({ _id: id }, { name: name, links: links }, (err) => {
                 if (err)

@@ -67,6 +67,18 @@ class EditNavigation extends React.Component {
         this.setState({ links: newLinks })
     }
 
+    saveChanges() {
+        const { refreshDashboard } = this.props;
+
+        axios.post('http://localhost:4000/api/editcreatenavigation', { id: this.state.navigation._id, name: this.state.name, links: this.state.links })
+            .then(response => {
+                console.log(response.status)
+                refreshDashboard();
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { links, name } = this.state;
 
@@ -89,6 +101,9 @@ class EditNavigation extends React.Component {
                 <hr />
                 <button onClick={this.addLink.bind(this)}>
                     Add Link
+                </button>
+                <button onClick={this.saveChanges.bind(this)}>
+                    Save
                 </button>
             </div>
         );
