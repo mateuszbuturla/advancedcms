@@ -45,3 +45,13 @@ exports.editCreateNavigation = async (req, res) => {
         })
     }
 }
+
+exports.removeNavigation = async (req, res) => {
+    const id = req.body.id;
+    navigationsModel.deleteOne({ _id: id }, (err) => {
+        if (err)
+            return res.status(500);
+
+        res.status(200).json({});
+    })
+}
