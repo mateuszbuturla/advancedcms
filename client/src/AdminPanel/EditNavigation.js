@@ -79,6 +79,17 @@ class EditNavigation extends React.Component {
             });
     }
 
+    removeNavigation() {
+        const { refreshDashboard } = this.props;
+
+        axios.post('http://localhost:4000/api/removenaviation', { id: this.state.navigation._id })
+            .then(response => {
+                refreshDashboard();
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { links, name } = this.state;
 
@@ -104,6 +115,9 @@ class EditNavigation extends React.Component {
                 </button>
                 <button onClick={this.saveChanges.bind(this)}>
                     Save
+                </button>
+                <button onClick={this.removeNavigation.bind(this)}>
+                    Remove
                 </button>
             </div>
         );

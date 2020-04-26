@@ -19,4 +19,5 @@ module.exports = (app) => {
     app.post('/api/getnavigationbyid', navigationController.getNavigationByID);
     app.get('/api/getallnavigations', navigationController.getAllNavigations);
     app.post('/api/editcreatenavigation', navigationController.editCreateNavigation);
+    app.post('/api/removenaviation', navigationController.removeNavigation);
 }
