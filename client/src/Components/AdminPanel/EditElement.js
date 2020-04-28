@@ -28,6 +28,15 @@ function EditElement(props) {
                     id={props.id}
                 />
             }
+            {elementType === PageElementsType.NAVLINK &&
+                <EditMainNavLink
+                    handleSelectChane={props.handleSelectChane}
+                    handleChangeElementPosition={props.handleChangeElementPosition}
+                    handleRemoveLink={props.handleRemoveLink}
+                    value={props.value}
+                    id={props.id}
+                />
+            }
         </>
     );
 }

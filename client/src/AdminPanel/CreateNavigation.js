@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
+import PageElementsType from '../Utils/PageElementTypes';
 
-import EditMainNavLink from '../Components/AdminPanel/EditMainNavLink';
+import EditElement from '../Components/AdminPanel/EditElement';
 
 class CreateNavigation extends React.Component {
 
@@ -55,8 +56,9 @@ class CreateNavigation extends React.Component {
         const { links, name } = this.state;
 
         const elements = links.map((element, index) =>
-            <EditMainNavLink
+            <EditElement
                 key={index}
+                elementType={PageElementsType.NAVLINK}
                 handleSelectChane={this.handleSelectChane.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveLink={this.handleRemoveLink.bind(this)}
