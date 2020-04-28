@@ -5,8 +5,6 @@ import PageElementsType from '../Utils/PageElementTypes';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
-import EditMainNavLink from '../Components/AdminPanel/EditMainNavLink';
-
 class EditMainNav extends React.Component {
 
     state = {

@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
+import PageElementsType from '../Utils/PageElementTypes';
 
-import EditText from '../Components/AdminPanel/EditText';
+import EditElement from '../Components/AdminPanel/EditElement';
 
 class EditHomePage extends React.Component {
 
@@ -56,8 +57,9 @@ class EditHomePage extends React.Component {
         const { content } = this.state;
 
         const elements = content.map((element, index) =>
-            <EditText
+            <EditElement
                 key={index}
+                elementType={PageElementsType.TEXT}
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}

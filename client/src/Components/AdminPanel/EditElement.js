@@ -10,7 +10,15 @@ function EditElement(props) {
 
     return (
         <>
-            {elementType === PageElementsType.TEXT && <EditText />}
+            {elementType === PageElementsType.TEXT &&
+                <EditText
+                    handleChangeText={props.handleChangeText}
+                    handleChangeElementPosition={props.handleChangeElementPosition}
+                    handleRemoveElement={props.handleRemoveElement}
+                    value={props.value}
+                    id={props.id}
+                />
+            }
             {elementType === PageElementsType.MAINNAVLINK &&
                 <EditMainNavLink
                     handleSelectChane={props.handleSelectChane}
