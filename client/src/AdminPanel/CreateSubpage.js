@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
+import PageElementsType from '../Utils/PageElementTypes';
 
-import EditText from '../Components/AdminPanel/EditText';
+import EditElement from '../Components/AdminPanel/EditElement';
 
 class CreateSubpage extends React.Component {
 
@@ -55,8 +56,9 @@ class CreateSubpage extends React.Component {
         const { content, name } = this.state;
 
         const elements = content.map((element, index) =>
-            <EditText
+            <EditElement
                 key={index}
+                elementType={PageElementsType.TEXT}
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}
