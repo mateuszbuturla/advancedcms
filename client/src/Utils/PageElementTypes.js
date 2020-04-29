@@ -3,4 +3,5 @@ module.exports = {
     TEXT: 'text',
     MAINNAVLINK: 'mainNavLink',
     LINK: 'link',
+    PAGEHEADER: 'pageHeader',
 }

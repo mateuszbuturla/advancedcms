@@ -3,6 +3,7 @@ import PageElementsType from '../../Utils/PageElementTypes';
 
 import EditText from './EditText';
 import EditMainNavLink from './EditMainNavLink';
+import EditPageHeader from './EditPageHeader';
 
 function EditElement(props) {
 
@@ -28,11 +29,11 @@ function EditElement(props) {
                     id={props.id}
                 />
             }
-            {elementType === PageElementsType.NAVLINK &&
-                <EditMainNavLink
-                    handleSelectChane={props.handleSelectChane}
+            {elementType === PageElementsType.PAGEHEADER &&
+                <EditPageHeader
+                    handleChangeText={props.handleChangeText}
                     handleChangeElementPosition={props.handleChangeElementPosition}
-                    handleRemoveLink={props.handleRemoveLink}
+                    handleRemoveElement={props.handleRemoveElement}
                     value={props.value}
                     id={props.id}
                 />
