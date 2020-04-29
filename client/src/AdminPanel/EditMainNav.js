@@ -22,7 +22,7 @@ class EditMainNav extends React.Component {
 
     addLink() {
         let newLinks = this.state.links;
-        newLinks.push({ type: 'mainNavLink', text: '' })
+        newLinks.push({ type: PageElementsType.MAINNAVLINK, text: '' })
         this.setState({ links: newLinks });
     }
 

@@ -18,7 +18,7 @@ class CreateSubpage extends React.Component {
 
     addText() {
         let newContent = this.state.content;
-        newContent.push({ type: 'text', text: '' })
+        newContent.push({ type: PageElementsType.TEXT, text: '' })
         this.setState({ content: newContent });
     }
 
@@ -58,7 +58,7 @@ class CreateSubpage extends React.Component {
         const elements = content.map((element, index) =>
             <EditElement
                 key={index}
-                elementType={PageElementsType.TEXT}
+                elementType={element.type}
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}

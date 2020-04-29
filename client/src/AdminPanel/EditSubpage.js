@@ -45,7 +45,7 @@ class EditSubpage extends React.Component {
 
     addText() {
         let newContent = this.state.content;
-        newContent.push({ type: 'text', text: '' })
+        newContent.push({ type: PageElementsType.TEXT, text: '' })
         this.setState({ content: newContent });
     }
 
