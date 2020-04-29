@@ -20,9 +20,9 @@ class EditMainNav extends React.Component {
             });
     }
 
-    addLink() {
+    addField(e) {
         let newLinks = this.state.links;
-        newLinks.push({ type: PageElementsType.MAINNAVLINK, text: '' })
+        newLinks.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '' })
         this.setState({ links: newLinks });
     }
 
@@ -73,7 +73,7 @@ class EditMainNav extends React.Component {
                 <hr />
                 {elements}
                 <hr />
-                <button onClick={this.addLink.bind(this)}>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.MAINNAVLINK}>
                     Add Link
                 </button>
                 <button onClick={this.saveChanges.bind(this)}>
