@@ -97,7 +97,7 @@ class EditSubpage extends React.Component {
         const elements = content.map((element, index) =>
             <EditElement
                 key={index}
-                elementType={PageElementsType.TEXT}
+                elementType={element.type}
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}

@@ -59,7 +59,7 @@ class EditMainNav extends React.Component {
         const elements = links.map((element, index) =>
             <EditElement
                 key={index}
-                elementType={PageElementsType.MAINNAVLINK}
+                elementType={element.type}
                 handleSelectChane={this.handleSelectChane.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveLink={this.handleRemoveLink.bind(this)}
