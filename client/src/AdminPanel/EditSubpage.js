@@ -43,9 +43,9 @@ class EditSubpage extends React.Component {
         this.setState({ name: e.target.value });
     }
 
-    addText() {
+    addField(e) {
         let newContent = this.state.content;
-        newContent.push({ type: PageElementsType.TEXT, text: '' })
+        newContent.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '' })
         this.setState({ content: newContent });
     }
 
@@ -112,7 +112,10 @@ class EditSubpage extends React.Component {
                 <hr />
                 {elements}
                 <hr />
-                <button onClick={this.addText.bind(this)}>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.PAGEHEADER}>
+                    Add Header
+                </button>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.TEXT}>
                     Add Text
                 </button>
                 <button onClick={this.saveChanges.bind(this)}>
