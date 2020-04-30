@@ -4,6 +4,7 @@ import PageElementsType from '../../Utils/PageElementTypes';
 import EditText from './EditText';
 import EditMainNavLink from './EditMainNavLink';
 import EditPageHeader from './EditPageHeader';
+import EditLink from './EditLink';
 
 function EditElement(props) {
 
@@ -31,6 +32,15 @@ function EditElement(props) {
             }
             {elementType === PageElementsType.PAGEHEADER &&
                 <EditPageHeader
+                    handleChangeText={props.handleChangeText}
+                    handleChangeElementPosition={props.handleChangeElementPosition}
+                    handleRemoveElement={props.handleRemoveElement}
+                    value={props.value}
+                    id={props.id}
+                />
+            }
+            {elementType === PageElementsType.LINK &&
+                <EditLink
                     handleChangeText={props.handleChangeText}
                     handleChangeElementPosition={props.handleChangeElementPosition}
                     handleRemoveElement={props.handleRemoveElement}
