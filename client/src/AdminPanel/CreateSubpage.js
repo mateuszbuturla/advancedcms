@@ -79,6 +79,9 @@ class CreateSubpage extends React.Component {
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.TEXT}>
                     Add Text
                 </button>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LINK}>
+                    Add Link
+                </button>
                 <button onClick={this.saveChanges.bind(this)}>
                     Save
                 </button>
