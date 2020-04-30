@@ -45,7 +45,7 @@ class EditSubpage extends React.Component {
 
     addField(e) {
         let newContent = this.state.content;
-        newContent.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '' })
+        newContent.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '', elements: [] })
         this.setState({ content: newContent });
     }
 
@@ -64,6 +64,12 @@ class EditSubpage extends React.Component {
         let newContent = content;
 
         newContent.splice(e.target.id, 1);
+        this.setState({ content: newContent })
+    }
+
+    handleChangeElementInComponent(newElements, parentid) {
+        let newContent = this.state.content;
+        newContent[parentid].elements = newElements;
         this.setState({ content: newContent })
     }
 
@@ -101,7 +107,9 @@ class EditSubpage extends React.Component {
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}
+                handleChangeElementInComponent={(newElements, parentid) => this.handleChangeElementInComponent(newElements, parentid)}
                 value={element.text}
+                elements={element.elements}
                 id={index}
             />)
 

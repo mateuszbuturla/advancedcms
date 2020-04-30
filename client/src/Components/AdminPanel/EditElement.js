@@ -51,8 +51,12 @@ function EditElement(props) {
             }
             {elementType === PageElementsType.LIST &&
                 <EditList
+                    handleChangeText={props.handleChangeText}
                     handleChangeElementPosition={props.handleChangeElementPosition}
                     handleRemoveElement={props.handleRemoveElement}
+                    handleChangeElementInComponent={props.handleChangeElementInComponent}
+                    value={props.value}
+                    elements={props.elements}
                     id={props.id}
                 />
             }
