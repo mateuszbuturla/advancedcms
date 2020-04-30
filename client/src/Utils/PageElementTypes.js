@@ -4,4 +4,5 @@ module.exports = {
     MAINNAVLINK: 'mainNavLink',
     LINK: 'link',
     PAGEHEADER: 'pageHeader',
+    LIST: 'list'
 }

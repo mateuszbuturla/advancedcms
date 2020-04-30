@@ -121,6 +121,9 @@ class EditSubpage extends React.Component {
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LINK}>
                     Add Link
                 </button>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LIST}>
+                    Add List
+                </button>
                 <button onClick={this.saveChanges.bind(this)}>
                     Save
                 </button>
