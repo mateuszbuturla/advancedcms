@@ -1,6 +1,7 @@
 const mainNavController = require('./controllers/mainNavController');
 const homePageController = require('./controllers/homePageController');
 const subpageController = require('./controllers/subpageController');
+const footerController = require('./controllers/footerController');
 
 module.exports = (app) => {
 
@@ -14,4 +15,7 @@ module.exports = (app) => {
     app.get('/api/getallsubpages', subpageController.getAllSubpages);
     app.post('/api/editcreatesubpage', subpageController.editCreateSubpage);
     app.post('/api/removesubpage', subpageController.removeSubpage);
+
+    app.get('/api/getfooter', footerController.getFooter);
+    app.post('/api/editfooter', footerController.editFooter);
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
 
@@ -8,6 +9,15 @@ class EditFooter extends React.Component {
 
     state = {
         content: [],
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:4000/api/getfooter')
+            .then(response => {
+                this.setState({ content: response.data.footer.elements })
+            }).catch(error => {
+                console.log('error')
+            });
     }
 
     addField(e) {
@@ -40,6 +50,15 @@ class EditFooter extends React.Component {
         this.setState({ content: newContent })
     }
 
+    saveChanges() {
+        axios.post('http://localhost:4000/api/editfooter', { elements: this.state.content })
+            .then(response => {
+                console.log(response.status)
+            }).catch(error => {
+                console.log('error')
+            });
+    }
+
     render() {
         const { content } = this.state;
 
@@ -70,6 +89,9 @@ class EditFooter extends React.Component {
                 </button>
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LIST}>
                     Add List
+                </button>
+                <button onClick={this.saveChanges.bind(this)}>
+                    Save
                 </button>
             </div>
         );
