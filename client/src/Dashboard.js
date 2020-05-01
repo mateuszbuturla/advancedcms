@@ -7,6 +7,7 @@ import EditMainNav from './AdminPanel/EditMainNav';
 import EditHomePage from './AdminPanel/EditHomePage';
 import CreateSubpage from './AdminPanel/CreateSubpage';
 import EditSubpage from './AdminPanel/EditSubpage';
+import EditFooter from './AdminPanel/EditFooter';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);
@@ -41,6 +42,7 @@ function Dashboard(props) {
             <p>Advanced CMS Dashboard</p>
             <NavLink to="/dashboard/editmainnav">Edit Main Nav</NavLink><br />
             <NavLink to="/dashboard/edithomepage">Edit Home Page</NavLink><br />
+            <NavLink to="/dashboard/editfooter">Edit Footer</NavLink><br />
             <NavLink to="/dashboard/createsubpage">Create subpage</NavLink><br />
             <a>Subpages</a><br />
             {subpagesLinks}
@@ -50,6 +52,7 @@ function Dashboard(props) {
                 <Route exact path="/dashboard/edithomepage" component={props => <EditHomePage {...props} refreshDashboard={getData} />} />
                 <Route exact path="/dashboard/createsubpage" component={props => <CreateSubpage {...props} refreshDashboard={getData} />} />
                 <Route exact path="/dashboard/editsubpage/:id" component={props => <EditSubpage {...props} refreshDashboard={getData} />} />
+                <Route exact path="/dashboard/editfooter" component={props => <EditFooter {...props} refreshDashboard={getData} />} />
             </Switch>
         </div>
     );
