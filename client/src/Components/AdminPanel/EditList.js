@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { changeElementPositionInArray } from '../../Utils/Common';
 
 function EditList(props) {
 
@@ -20,9 +21,24 @@ function EditList(props) {
         props.handleChangeElementInComponent([...newList], props.id);
     }
 
+    const handleChangeElementPosition = (e) => {
+        setListElements([...changeElementPositionInArray(listElements, e.target.id, e.target.dataset.direction)])
+        props.handleChangeElementInComponent([...changeElementPositionInArray(listElements, e.target.id, e.target.dataset.direction)], props.id);
+    }
+
+    const removeField = (e) => {
+        let newList = listElements;
+        newList.splice(e.target.id, 1);
+        setListElements([...newList])
+        props.handleChangeElementInComponent([...newList], props.id);
+    }
+
     let listElementsRender = listElements.map((element, index) =>
         <li key={index}>
             <input type="text" id={index} value={element.value} onChange={handleFieldChange} />
+            <button id={index} data-direction='up' onClick={handleChangeElementPosition}>UP</button>
+            <button id={index} data-direction='down' onClick={handleChangeElementPosition}>DOWN</button>
+            <button id={index} onClick={removeField}>REMOVE</button>
         </li>)
 
     return (
