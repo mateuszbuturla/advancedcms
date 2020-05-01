@@ -22,7 +22,7 @@ class EditHomePage extends React.Component {
 
     addField(e) {
         let newContent = this.state.content;
-        newContent.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '' })
+        newContent.push({ type: e.target.attributes.getNamedItem('data-fieldType').value, text: '', elements: [] })
         this.setState({ content: newContent });
     }
 
@@ -41,6 +41,12 @@ class EditHomePage extends React.Component {
         let newContent = content;
 
         newContent.splice(e.target.id, 1);
+        this.setState({ content: newContent })
+    }
+
+    handleChangeElementInComponent(newElements, parentid) {
+        let newContent = this.state.content;
+        newContent[parentid].elements = newElements;
         this.setState({ content: newContent })
     }
 
@@ -63,7 +69,9 @@ class EditHomePage extends React.Component {
                 handleChangeText={this.handleChangeText.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
                 handleRemoveElement={this.handleRemoveElement.bind(this)}
+                handleChangeElementInComponent={(newElements, parentid) => this.handleChangeElementInComponent(newElements, parentid)}
                 value={element.text}
+                elements={element.elements}
                 id={index}
             />)
 
@@ -81,6 +89,9 @@ class EditHomePage extends React.Component {
                 </button>
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LINK}>
                     Add Link
+                </button>
+                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LIST}>
+                    Add List
                 </button>
                 <button onClick={this.saveChanges.bind(this)}>
                     Save
