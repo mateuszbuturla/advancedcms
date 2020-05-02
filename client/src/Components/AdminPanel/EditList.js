@@ -43,7 +43,7 @@ function EditList(props) {
                 elementType={element.type}
                 handleChangeText={handleFieldChange}
                 handleChangeElementPosition={handleChangeElementPosition}
-                handleRemoveElement={handleChangeElementPosition}
+                handleRemoveElement={removeField}
                 value={element.value}
                 id={index}
             />
