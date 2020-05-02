@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { changeElementPositionInArray } from '../../Utils/Common';
+import PageElementsType from '../../Utils/PageElementTypes';
+
+import EditElement from '../../Components/AdminPanel/EditElement';
 
 function EditList(props) {
 
@@ -9,9 +12,9 @@ function EditList(props) {
         setListElements(props.elements)
     }, [])
 
-    const addField = () => {
-        setListElements([...listElements, { value: '' }])
-        props.handleChangeElementInComponent([...listElements, { value: '' }], props.id);
+    const addField = (e) => {
+        setListElements([...listElements, { type: e.target.attributes.getNamedItem('data-fieldType').value, value: '' }])
+        props.handleChangeElementInComponent([...listElements, { type: e.target.attributes.getNamedItem('data-fieldType').value, value: '' }], props.id);
     }
 
     const handleFieldChange = (e) => {
@@ -35,10 +38,15 @@ function EditList(props) {
 
     let listElementsRender = listElements.map((element, index) =>
         <li key={index}>
-            <input type="text" id={index} value={element.value} onChange={handleFieldChange} />
-            <button id={index} data-direction='up' onClick={handleChangeElementPosition}>UP</button>
-            <button id={index} data-direction='down' onClick={handleChangeElementPosition}>DOWN</button>
-            <button id={index} onClick={removeField}>REMOVE</button>
+            <EditElement
+                key={index}
+                elementType={element.type}
+                handleChangeText={handleFieldChange}
+                handleChangeElementPosition={handleChangeElementPosition}
+                handleRemoveElement={handleChangeElementPosition}
+                value={element.value}
+                id={index}
+            />
         </li>)
 
     return (
@@ -48,7 +56,12 @@ function EditList(props) {
             <ul>
                 {listElementsRender}
             </ul>
-            <button onClick={addField}>Add field</button>
+            <button onClick={addField} data-fieldType={PageElementsType.TEXT}>
+                Add Text
+            </button>
+            <button onClick={addField} data-fieldType={PageElementsType.LINK}>
+                Add Link
+            </button>
             <button id={props.id} data-direction='up' onClick={props.handleChangeElementPosition}>UP</button>
             <button id={props.id} data-direction='down' onClick={props.handleChangeElementPosition}>DOWN</button>
             <button id={props.id} onClick={props.handleRemoveElement}>REMOVE</button>
