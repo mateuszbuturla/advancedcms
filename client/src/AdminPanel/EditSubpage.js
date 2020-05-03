@@ -77,19 +77,28 @@ class EditSubpage extends React.Component {
     saveChanges() {
         const { refreshDashboard } = this.props;
 
-        checkSubpageNameIsExist(this.state.name)
-            .then((isExist) => {
-                this.setState({ nameIsExist: isExist })
-                if (!isExist) {
-                    axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
-                        .then(response => {
-                            console.log(response.status)
-                            refreshDashboard();
-                        }).catch(error => {
-                            console.log('error')
-                        });
-                }
-            })
+        const sendDataToApi = () => {
+            axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
+                .then(response => {
+                    console.log(response.status)
+                    refreshDashboard();
+                }).catch(error => {
+                    console.log('error')
+                });
+        }
+
+        if (this.state.name !== this.state.subpage.name) {
+            checkSubpageNameIsExist(this.state.name)
+                .then((isExist) => {
+                    this.setState({ nameIsExist: isExist })
+                    if (!isExist) {
+                        sendDataToApi();
+                    }
+                })
+        }
+        else {
+            sendDataToApi();
+        }
     }
 
     removeSubpage() {
