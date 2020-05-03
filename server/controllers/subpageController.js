@@ -12,6 +12,12 @@ exports.getAllSubpages = async (req, res) => {
     res.status(200).json({ subpages: findSubpages })
 }
 
+exports.checkSubpageNameIsExist = async (req, res) => {
+    const name = req.body.name;
+    const findSubpages = await subpageModel.find({ name: name });
+    res.status(200).json({ isExist: findSubpages.length > 0 ? true : false })
+}
+
 exports.editCreateSubpage = async (req, res) => {
     const id = req.body.id;
     const name = req.body.name;

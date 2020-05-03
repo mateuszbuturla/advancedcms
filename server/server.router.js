@@ -15,6 +15,7 @@ module.exports = (app) => {
     app.get('/api/getallsubpages', subpageController.getAllSubpages);
     app.post('/api/editcreatesubpage', subpageController.editCreateSubpage);
     app.post('/api/removesubpage', subpageController.removeSubpage);
+    app.post('/api/checksubpagenameisexist', subpageController.checkSubpageNameIsExist);
 
     app.get('/api/getfooter', footerController.getFooter);
     app.post('/api/editfooter', footerController.editFooter);

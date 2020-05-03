@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { changeElementPositionInArray } from '../Utils/Common';
+import { changeElementPositionInArray, checkSubpageNameIsExist } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
 
 import EditElement from '../Components/AdminPanel/EditElement';
@@ -11,6 +11,7 @@ class EditSubpage extends React.Component {
         subpage: null,
         name: '',
         content: [],
+        nameIsExist: false,
     }
 
     componentDidMount() {
@@ -76,13 +77,19 @@ class EditSubpage extends React.Component {
     saveChanges() {
         const { refreshDashboard } = this.props;
 
-        axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
-            .then(response => {
-                console.log(response.status)
-                refreshDashboard();
-            }).catch(error => {
-                console.log('error')
-            });
+        checkSubpageNameIsExist(this.state.name)
+            .then((isExist) => {
+                this.setState({ nameIsExist: isExist })
+                if (!isExist) {
+                    axios.post('http://localhost:4000/api/editcreatesubpage', { id: this.state.subpage._id, name: this.state.name, content: this.state.content })
+                        .then(response => {
+                            console.log(response.status)
+                            refreshDashboard();
+                        }).catch(error => {
+                            console.log('error')
+                        });
+                }
+            })
     }
 
     removeSubpage() {
@@ -98,7 +105,7 @@ class EditSubpage extends React.Component {
     }
 
     render() {
-        const { content, name } = this.state;
+        const { content, name, nameIsExist } = this.state;
 
         const elements = content.map((element, index) =>
             <EditElement
@@ -117,6 +124,7 @@ class EditSubpage extends React.Component {
             <div>
                 <h2>Edit Subpage</h2>
                 <input type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
+                {nameIsExist === true && <p>The name already exists</p>}
                 <hr />
                 {elements}
                 <hr />

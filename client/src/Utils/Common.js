@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const getUser = () => {
     const userStr = sessionStorage.getItem('user');
     if (userStr) return JSON.parse(userStr);
@@ -34,4 +36,16 @@ export const changeElementPositionInArray = (array, _id, direction) => {
     }
 
     return (newArray);
+}
+
+export const checkSubpageNameIsExist = async (name) => {
+    let test;
+    await axios.post('http://localhost:4000/api/checksubpagenameisexist', { name: name })
+        .then(response => {
+            test = response.data.isExist
+        }).catch(error => {
+            console.log('error')
+        });
+
+    return (test)
 }
