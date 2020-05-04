@@ -12,9 +12,14 @@ import EditList from './EditList';
 const EditElementContainer = styled.div`
     width: 100%;
     border-radius: ${props => props.config.borderRadius};
-    border: 1px dashed ${props => props.config.themeColor};
+    border: 1px dashed transparent;
     margin-top: ${props => props.config.marginTop.small};
     padding: 10px 0px;
+    transition: ${props => props.config.transition};
+
+    &:hover {
+        border: 1px dashed ${props => props.config.themeColor};
+    }
 `;
 
 function EditElement(props) {
