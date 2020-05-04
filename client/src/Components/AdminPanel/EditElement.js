@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import PageElementsType from '../../Utils/PageElementTypes';
+import styledConfig from '../../config/styledComponentsConfig';
 
 import EditText from './EditText';
 import EditMainNavLink from './EditMainNavLink';
@@ -7,12 +9,20 @@ import EditPageHeader from './EditPageHeader';
 import EditLink from './EditLink';
 import EditList from './EditList';
 
+const EditElementContainer = styled.div`
+    width: 100%;
+    border-radius: ${props => props.config.borderRadius};
+    border: 1px dashed ${props => props.config.themeColor};
+    margin-top: ${props => props.config.marginTop.small};
+    padding: 10px 0px;
+`;
+
 function EditElement(props) {
 
     const elementType = props.elementType;
 
     return (
-        <>
+        <EditElementContainer config={styledConfig}>
             {elementType === PageElementsType.TEXT &&
                 <EditText
                     handleChangeText={props.handleChangeText}
@@ -60,7 +70,7 @@ function EditElement(props) {
                     id={props.id}
                 />
             }
-        </>
+        </EditElementContainer>
     );
 }
 

@@ -2,6 +2,7 @@ module.exports = {
     bgColor: '#ffffff',
     mainColor: '#000000',
     themeColor: '#2b8aba',
+    borderRadius: '20px',
     marginTop: {
         small: '20px',
     },
