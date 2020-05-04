@@ -2,6 +2,9 @@ module.exports = {
     bgColor: '#ffffff',
     mainColor: '#000000',
     themeColor: '#2b8aba',
+    marginTop: {
+        small: '20px',
+    },
     breakPoints: {
         medium: '768px',
         big: '1200px',

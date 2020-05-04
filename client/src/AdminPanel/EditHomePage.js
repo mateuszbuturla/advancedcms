@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
+import styledConfig from '../config/styledComponentsConfig';
+
+import { PageHeader } from '../Components/Universal/Universal';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -77,7 +80,7 @@ class EditHomePage extends React.Component {
 
         return (
             <div>
-                <h2>Edit Home Page</h2>
+                <PageHeader config={styledConfig}>Edit Home Page</PageHeader>
                 <hr />
                 {elements}
                 <hr />

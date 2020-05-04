@@ -5,6 +5,7 @@ import PageElementsType from '../Utils/PageElementTypes';
 import styledConfig from '../config/styledComponentsConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
+import { ChangeNameInput } from '../Components/Universal/UniversalAdminPanel';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -87,7 +88,7 @@ class CreateSubpage extends React.Component {
         return (
             <div>
                 <PageHeader config={styledConfig}>Create Subpage</PageHeader>
-                <input type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
+                <ChangeNameInput config={styledConfig} type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
                 {nameIsExist === true && <p>The name already exists</p>}
                 <hr />
                 {elements}

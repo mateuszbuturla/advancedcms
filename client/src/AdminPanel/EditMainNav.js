@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
+import styledConfig from '../config/styledComponentsConfig';
+
+import { PageHeader } from '../Components/Universal/Universal';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -69,7 +72,7 @@ class EditMainNav extends React.Component {
 
         return (
             <div>
-                <h2>Edit Main Nav</h2>
+                <PageHeader config={styledConfig}>Edit Main Nav</PageHeader>
                 <hr />
                 {elements}
                 <hr />
