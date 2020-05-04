@@ -5,6 +5,7 @@ import PageElementsType from '../Utils/PageElementTypes';
 import styledConfig from '../config/styledComponentsConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
+import { Line } from '../Components/Universal/UniversalAdminPanel';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -81,9 +82,9 @@ class EditHomePage extends React.Component {
         return (
             <div>
                 <PageHeader config={styledConfig}>Edit Home Page</PageHeader>
-                <hr />
+                <Line config={styledConfig} />
                 {elements}
-                <hr />
+                <Line config={styledConfig} />
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.PAGEHEADER}>
                     Add Header
                 </button>

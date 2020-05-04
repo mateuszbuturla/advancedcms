@@ -5,6 +5,7 @@ import PageElementsType from '../Utils/PageElementTypes';
 import styledConfig from '../config/styledComponentsConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
+import { Line } from '../Components/Universal/UniversalAdminPanel';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -73,9 +74,9 @@ class EditMainNav extends React.Component {
         return (
             <div>
                 <PageHeader config={styledConfig}>Edit Main Nav</PageHeader>
-                <hr />
+                <Line config={styledConfig} />
                 {elements}
-                <hr />
+                <Line config={styledConfig} />
                 <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.MAINNAVLINK}>
                     Add Link
                 </button>
