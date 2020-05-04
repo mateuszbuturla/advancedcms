@@ -1,12 +1,16 @@
-export const styledComponentsConfig = {
+module.exports = {
     bgColor: '#ffffff',
     mainColor: '#000000',
     themeColor: '#2b8aba',
+    breakPoints: {
+        medium: '768px',
+        big: '1200px',
+    },
     mainContainerSize: {
         size: '90vw',
         maxSize: '1400px'
     },
-    headerFontSize: {
+    pageHeaderFontSize: {
         small: '25px',
         medium: '35px',
         big: '45px'

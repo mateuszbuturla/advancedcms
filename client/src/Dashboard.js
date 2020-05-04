@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { getUser, removeUserSession } from './Utils/Common';
 import axios from 'axios';
+import styledConfig from './config/styledComponentsConfig';
+
+import { MainContainer, PageHeader } from './Components/Universal/Universal';
 
 import EditMainNav from './AdminPanel/EditMainNav';
 import EditHomePage from './AdminPanel/EditHomePage';
@@ -38,23 +41,43 @@ function Dashboard(props) {
         </div>)
 
     return (
-        <div>
-            <p>Advanced CMS Dashboard</p>
-            <NavLink to="/dashboard/editmainnav">Edit Main Nav</NavLink><br />
-            <NavLink to="/dashboard/edithomepage">Edit Home Page</NavLink><br />
-            <NavLink to="/dashboard/editfooter">Edit Footer</NavLink><br />
-            <NavLink to="/dashboard/createsubpage">Create subpage</NavLink><br />
-            <a>Subpages</a><br />
-            {subpagesLinks}
-            <input type="button" onClick={handleLogout} value="Logout" />
-            <Switch>
-                <Route exact path="/dashboard/editmainnav" component={props => <EditMainNav {...props} refreshDashboard={getData} />} />
-                <Route exact path="/dashboard/edithomepage" component={props => <EditHomePage {...props} refreshDashboard={getData} />} />
-                <Route exact path="/dashboard/createsubpage" component={props => <CreateSubpage {...props} refreshDashboard={getData} />} />
-                <Route exact path="/dashboard/editsubpage/:id" component={props => <EditSubpage {...props} refreshDashboard={getData} />} />
-                <Route exact path="/dashboard/editfooter" component={props => <EditFooter {...props} refreshDashboard={getData} />} />
-            </Switch>
-        </div>
+        <>
+            <aside>
+                <p>Advanced CMS Dashboard</p>
+                <NavLink to="/dashboard/editmainnav">Edit Main Nav</NavLink><br />
+                <NavLink to="/dashboard/edithomepage">Edit Home Page</NavLink><br />
+                <NavLink to="/dashboard/editfooter">Edit Footer</NavLink><br />
+                <NavLink to="/dashboard/createsubpage">Create subpage</NavLink><br />
+                <a>Subpages</a><br />
+                {subpagesLinks}
+                <input type="button" onClick={handleLogout} value="Logout" />
+            </aside>
+
+            <MainContainer config={styledConfig}>
+                <Switch>
+                    <Route exact
+                        path="/dashboard/editmainnav"
+                        component={props => <EditMainNav {...props} refreshDashboard={getData} />}
+                    />
+                    <Route exact
+                        path="/dashboard/edithomepage"
+                        component={props => <EditHomePage {...props} refreshDashboard={getData} />}
+                    />
+                    <Route exact
+                        path="/dashboard/createsubpage"
+                        component={props => <CreateSubpage {...props} refreshDashboard={getData} />}
+                    />
+                    <Route exact
+                        path="/dashboard/editsubpage/:id"
+                        component={props => <EditSubpage {...props} refreshDashboard={getData} />}
+                    />
+                    <Route exact
+                        path="/dashboard/editfooter"
+                        component={props => <EditFooter {...props} refreshDashboard={getData} />}
+                    />
+                </Switch>
+            </MainContainer>
+        </>
     );
 }
 

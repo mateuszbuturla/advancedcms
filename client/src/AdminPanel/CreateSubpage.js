@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray, checkSubpageNameIsExist } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
+import styledConfig from '../config/styledComponentsConfig';
+
+import { PageHeader } from '../Components/Universal/Universal';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -83,7 +86,7 @@ class CreateSubpage extends React.Component {
 
         return (
             <div>
-                <h2>Create Subpage</h2>
+                <PageHeader config={styledConfig}>Create Subpage</PageHeader>
                 <input type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
                 {nameIsExist === true && <p>The name already exists</p>}
                 <hr />
