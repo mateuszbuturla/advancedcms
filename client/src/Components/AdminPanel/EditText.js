@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ActionButtons } from '../Universal/UniversalAdminPanel';
+
 function EditText(props) {
 
     return (
@@ -7,9 +9,11 @@ function EditText(props) {
             <textarea onChange={props.handleChangeText} value={props.value} id={props.id}>
 
             </textarea>
-            <button id={props.id} data-direction='up' onClick={props.handleChangeElementPosition}>UP</button>
-            <button id={props.id} data-direction='down' onClick={props.handleChangeElementPosition}>DOWN</button>
-            <button id={props.id} onClick={props.handleRemoveElement}>REMOVE</button>
+            <ActionButtons
+                handleChangeElementPosition={props.handleChangeElementPosition}
+                handleRemoveElement={props.handleRemoveElement}
+                id={props.id}
+            />
         </div>
     );
 }

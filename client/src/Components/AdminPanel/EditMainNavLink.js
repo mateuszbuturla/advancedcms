@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { ActionButtons } from '../Universal/UniversalAdminPanel';
+
 function EditMainNavLink(props) {
 
     const [subpages, setSubpages] = useState([]);
@@ -28,9 +30,11 @@ function EditMainNavLink(props) {
                 <option value="homepage">Home Page</option>
                 {subpagesOptions}
             </select>
-            <button id={props.id} data-direction='up' onClick={props.handleChangeElementPosition}>UP</button>
-            <button id={props.id} data-direction='down' onClick={props.handleChangeElementPosition}>DOWN</button>
-            <button id={props.id} onClick={props.handleRemoveLink}>REMOVE</button>
+            <ActionButtons
+                handleChangeElementPosition={props.handleChangeElementPosition}
+                handleRemoveElement={props.handleRemoveElement}
+                id={props.id}
+            />
         </div>
     );
 }
