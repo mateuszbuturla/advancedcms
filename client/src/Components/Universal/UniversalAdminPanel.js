@@ -24,13 +24,38 @@ export const EditElementContainer = styled.div`
     border-radius: ${props => props.config.borderRadius};
     border: 1px dashed transparent;
     margin-top: ${props => props.config.marginTop.small};
-    padding: 10px 0px;
+    padding: 0;
     transition: ${props => props.config.transition};
 
     &:hover {
         border: 1px dashed ${props => props.config.themeColor};
+        padding: 20px 0px 10px;
     }
 `;
+
+export const FieldTypeText = (props) => {
+
+    const Text = styled.div`
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transform: translateY(-50%);
+        background-color: ${props => props.config.mainColor};
+        color: ${props => props.config.themeColor};
+        padding: 2px 10px;
+        border-radius: ${props => props.config.borderRadius};
+        opacity: 0;
+        transition: ${props => props.config.transition} opacity;
+
+        ${EditElementContainer}:hover & {
+            opacity: 1;
+        }
+    `;
+
+    return (
+        <Text config={styledConfig}>{props.value}</Text>
+    );
+}
 
 export const ActionButtons = (props) => {
 

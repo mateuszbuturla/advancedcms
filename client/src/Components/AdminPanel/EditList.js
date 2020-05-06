@@ -4,7 +4,7 @@ import PageElementsType from '../../Utils/PageElementTypes';
 
 import EditElement from '../../Components/AdminPanel/EditElement';
 
-import { ActionButtons } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
 
 function EditList(props) {
 
@@ -53,7 +53,7 @@ function EditList(props) {
 
     return (
         <div>
-            <p>List</p>
+            <FieldTypeText value="List" />
             <input type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
             <ul>
                 {listElementsRender}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { ActionButtons } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
 
 function EditMainNavLink(props) {
 
@@ -26,6 +26,7 @@ function EditMainNavLink(props) {
 
     return (
         <div>
+            <FieldTypeText value="Nav link" />
             <select onChange={props.handleSelectChane} value={props.value} id={props.id} name="subpageSelect">
                 <option value="homepage">Home Page</option>
                 {subpagesOptions}

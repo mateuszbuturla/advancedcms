@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { ActionButtons } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
 
 function EditText(props) {
 
     return (
         <div>
+            <FieldTypeText value="Text" />
             <textarea onChange={props.handleChangeText} value={props.value} id={props.id}>
 
             </textarea>

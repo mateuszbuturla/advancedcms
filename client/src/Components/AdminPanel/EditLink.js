@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ActionButtons } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
 
 function EditLink(props) {
 
     return (
         <div>
-            <p>Link</p>
+            <FieldTypeText value="Link" />
             <input type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
             <ActionButtons
                 handleChangeElementPosition={props.handleChangeElementPosition}

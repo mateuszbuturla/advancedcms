@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ActionButtons } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
 
 function EditPageHeader(props) {
 
     return (
         <div>
-            <p>Header</p>
+            <FieldTypeText value="Header" />
             <textarea onChange={props.handleChangeText} value={props.value} id={props.id}>
 
             </textarea>
