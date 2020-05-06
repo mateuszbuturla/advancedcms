@@ -1,10 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import styledConfig from '../../config/styledComponentsConfig';
 
 import { ActionButtons, FieldTypeText, EditElementTextarea } from '../Universal/UniversalAdminPanel';
-
-
 
 function EditText(props) {
 

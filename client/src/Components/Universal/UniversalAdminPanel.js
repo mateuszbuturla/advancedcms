@@ -57,6 +57,29 @@ export const FieldTypeText = (props) => {
     );
 }
 
+export const EditElementPageHeader = styled.input`
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    font-size: ${props => props.config.pageHeaderFontSize.small};
+    color: ${props => props.config.themeColor};
+    transition: ${props => props.config.transition};
+
+    ${EditElementContainer}:hover & {
+        border-bottom: 1px solid ${props => props.config.themeColor};
+    }
+
+    @media (min-width: ${props => props.config.breakPoints.medium})
+    {
+        font-size: ${props => props.config.pageHeaderFontSize.medium};
+    }
+
+    @media (min-width: ${props => props.config.breakPoints.big})
+    {
+        font-size: ${props => props.config.pageHeaderFontSize.big};
+    }
+`;
+
 export const EditElementTextarea = styled.textarea`
     width: 100%;
     max-width: 100%;
@@ -64,7 +87,7 @@ export const EditElementTextarea = styled.textarea`
     border: 1px solid transparent;
     outline: none;
     font-size: ${props => props.config.textFontSize.small};
-    color: ${props => props.config.themeColor};
+    color: ${props => props.config.mainColor};
     transition: ${props => props.config.transition};
 
     ${EditElementContainer}:hover & {

@@ -1,15 +1,14 @@
 import React from 'react';
+import styledConfig from '../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementPageHeader } from '../Universal/UniversalAdminPanel';
 
 function EditPageHeader(props) {
 
     return (
         <div>
             <FieldTypeText value="Header" />
-            <textarea onChange={props.handleChangeText} value={props.value} id={props.id}>
-
-            </textarea>
+            <EditElementPageHeader config={styledConfig} onChange={props.handleChangeText} value={props.value} id={props.id} />
             <ActionButtons
                 handleChangeElementPosition={props.handleChangeElementPosition}
                 handleRemoveElement={props.handleRemoveElement}
