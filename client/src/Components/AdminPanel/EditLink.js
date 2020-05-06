@@ -1,13 +1,14 @@
 import React from 'react';
+import styledConfig from '../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementLink } from '../Universal/UniversalAdminPanel';
 
 function EditLink(props) {
 
     return (
         <div>
             <FieldTypeText value="Link" />
-            <input type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
+            <EditElementLink config={styledConfig} type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
             <ActionButtons
                 handleChangeElementPosition={props.handleChangeElementPosition}
                 handleRemoveElement={props.handleRemoveElement}

@@ -105,6 +105,29 @@ export const EditElementTextarea = styled.textarea`
     }
 `;
 
+export const EditElementLink = styled.input`
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    font-size: ${props => props.config.pageHeaderFontSize.small};
+    color: ${props => props.config.themeColor};
+    transition: ${props => props.config.transition};
+
+    ${EditElementContainer}:hover & {
+        border-bottom: 1px solid ${props => props.config.themeColor};
+    }
+
+    @media (min-width: ${props => props.config.breakPoints.medium})
+    {
+        font-size: ${props => props.config.textFontSize.medium};
+    }
+
+    @media (min-width: ${props => props.config.breakPoints.big})
+    {
+        font-size: ${props => props.config.textFontSize.big};
+    }
+`;
+
 export const ActionButtons = (props) => {
 
     const Container = styled.div`
