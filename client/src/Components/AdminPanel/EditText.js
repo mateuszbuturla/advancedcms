@@ -1,15 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import styledConfig from '../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea } from '../Universal/UniversalAdminPanel';
+
+
 
 function EditText(props) {
 
     return (
         <div>
             <FieldTypeText value="Text" />
-            <textarea onChange={props.handleChangeText} value={props.value} id={props.id}>
-
-            </textarea>
+            <EditElementTextarea config={styledConfig} onChange={props.handleChangeText} value={props.value} id={props.id} />
             <ActionButtons
                 handleChangeElementPosition={props.handleChangeElementPosition}
                 handleRemoveElement={props.handleRemoveElement}
