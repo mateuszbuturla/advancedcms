@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { changeElementPositionInArray } from '../../Utils/Common';
 import PageElementsType from '../../Utils/PageElementTypes';
+import styledConfig from '../../config/styledComponentsConfig';
 
 import EditElement from '../../Components/AdminPanel/EditElement';
 
-import { ActionButtons, FieldTypeText } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea } from '../Universal/UniversalAdminPanel';
+
+const ListContainer = styled.ul`
+    margin-left: 40px;
+`;
 
 function EditList(props) {
 
@@ -54,10 +60,10 @@ function EditList(props) {
     return (
         <div>
             <FieldTypeText value="List" />
-            <input type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
-            <ul>
+            <EditElementTextarea config={styledConfig} type="text" onChange={props.handleChangeText} value={props.value} id={props.id} />
+            <ListContainer>
                 {listElementsRender}
-            </ul>
+            </ListContainer>
             <button onClick={addField} data-fieldType={PageElementsType.TEXT}>
                 Add Text
             </button>
