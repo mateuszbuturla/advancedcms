@@ -25,15 +25,14 @@ export const Line = styled.hr`
 export const EditElementContainer = styled.div`
     position: relative;
     width: 100%;
-    border-radius: ${props => props.config.borderRadius};
-    border: 1px dashed transparent;
     margin-top: ${props => props.config.marginTop.small};
     padding: 0;
     transition: ${props => props.config.transition};
 
     &:hover {
-        border: 1px dashed ${props => props.config.themeColor};
-        padding: 10px 0px 10px;
+        padding-top: 20px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
     }
 `;
 
@@ -47,7 +46,8 @@ export const FieldTypeText = (props) => {
         background-color: ${props => props.config.mainColor};
         color: ${props => props.config.themeColor};
         padding: 2px 10px;
-        border-radius: ${props => props.config.borderRadius};
+        border-top-right-radius: ${props => props.config.borderRadius};
+        border-bottom-right-radius: ${props => props.config.borderRadius};
         opacity: 0;
         transition: ${props => props.config.transition} opacity;
 
@@ -68,10 +68,6 @@ export const EditElementPageHeader = styled.input`
     font-size: ${props => props.config.pageHeaderFontSize.small};
     color: ${props => props.config.themeColor};
     transition: ${props => props.config.transition};
-
-    ${EditElementContainer}:hover & {
-        border-bottom: 1px solid ${props => props.config.themeColor};
-    }
 
     @media (min-width: ${props => props.config.breakPoints.medium})
     {
@@ -94,10 +90,6 @@ export const EditElementTextarea = styled.textarea`
     color: ${props => props.config.mainColor};
     transition: ${props => props.config.transition};
 
-    ${EditElementContainer}:hover & {
-        border-bottom: 1px solid ${props => props.config.themeColor};
-    }
-
     @media (min-width: ${props => props.config.breakPoints.medium})
     {
         font-size: ${props => props.config.textFontSize.medium};
@@ -117,10 +109,6 @@ export const EditElementLink = styled.input`
     color: ${props => props.config.themeColor};
     transition: ${props => props.config.transition};
 
-    ${EditElementContainer}:hover & {
-        border-bottom: 1px solid ${props => props.config.themeColor};
-    }
-
     @media (min-width: ${props => props.config.breakPoints.medium})
     {
         font-size: ${props => props.config.textFontSize.medium};
@@ -136,6 +124,8 @@ export const ActionButtons = (props) => {
 
     const Container = styled.div`
         position: absolute;
+        background-color: #fff;
+        border: 1px solid black;
         top: 0px;
         right: 20px;
         transform: translateY(-50%);
@@ -149,8 +139,8 @@ export const ActionButtons = (props) => {
 
     const Img = styled.img`
         margin-left: 5px;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         cursor: pointer;
     `;
 
