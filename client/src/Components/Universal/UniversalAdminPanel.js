@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import styledConfig from '../../config/styledComponentsConfig';
 
+import upIcon from '../../img/up.png';
+import downIcon from '../../img/down.png';
+import removeIcon from '../../img/remove.png';
+
 export const ChangeNameInput = styled.input`
     border: 0px;
     border-bottom: 1px solid ${props => props.config.mainColor};
@@ -143,11 +147,18 @@ export const ActionButtons = (props) => {
         }
     `;
 
+    const Img = styled.img`
+        margin-left: 5px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    `;
+
     return (
         <Container config={styledConfig}>
-            <button id={props.id} data-direction='up' onClick={props.handleChangeElementPosition}>UP</button>
-            <button id={props.id} data-direction='down' onClick={props.handleChangeElementPosition}>DOWN</button>
-            <button id={props.id} onClick={props.handleRemoveElement}>REMOVE</button>
-        </Container>
+            <Img src={upIcon} id={props.id} data-direction='up' onClick={props.handleChangeElementPosition} />
+            <Img src={downIcon} id={props.id} data-direction='down' onClick={props.handleChangeElementPosition} />
+            <Img src={removeIcon} id={props.id} onClick={props.handleRemoveElement} />
+        </Container >
     );
 }
