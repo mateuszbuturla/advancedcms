@@ -29,7 +29,7 @@ export const EditElementContainer = styled.div`
 
     &:hover {
         border: 1px dashed ${props => props.config.themeColor};
-        padding: 20px 0px 10px;
+        padding: 10px 0px 10px;
     }
 `;
 
@@ -132,9 +132,9 @@ export const ActionButtons = (props) => {
 
     const Container = styled.div`
         position: absolute;
-        bottom: 0px;
+        top: 0px;
         right: 20px;
-        transform: translateY(50%);
+        transform: translateY(-50%);
         opacity: 0;
         transition: ${props => props.config.transition} opacity;
 
