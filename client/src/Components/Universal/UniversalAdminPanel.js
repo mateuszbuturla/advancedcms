@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import styledConfig from '../../config/styledComponentsConfig';
+import PageElementsType from '../../Utils/PageElementTypes';
 
 import upIcon from '../../img/up.png';
 import downIcon from '../../img/down.png';
@@ -150,5 +151,31 @@ export const ActionButtons = (props) => {
             <Img src={downIcon} id={props.id} data-direction='down' onClick={props.handleChangeElementPosition} />
             <Img src={removeIcon} id={props.id} onClick={props.handleRemoveElement} />
         </Container >
+    );
+}
+
+export const EditMenu = (props) => {
+
+    return (
+        <>
+            <button onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER}>
+                Add Header
+            </button>
+            <button onClick={props.addField} data-fieldType={PageElementsType.TEXT}>
+                Add Text
+            </button>
+            <button onClick={props.addField} data-fieldType={PageElementsType.LINK}>
+                Add Link
+            </button>
+            <button onClick={props.addField} data-fieldType={PageElementsType.LIST}>
+                Add List
+            </button>
+            <button onClick={props.saveChanges}>
+                Save
+            </button>
+            <button onClick={props.removeSubpage}>
+                Remove
+            </button>
+        </>
     );
 }

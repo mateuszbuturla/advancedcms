@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray, checkSubpageNameIsExist } from '../Utils/Common';
-import PageElementsType from '../Utils/PageElementTypes';
 import styledConfig from '../config/styledComponentsConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
-import { ChangeNameInput, Line } from '../Components/Universal/UniversalAdminPanel';
+import { ChangeNameInput, Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -141,24 +140,7 @@ class EditSubpage extends React.Component {
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />
-                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.PAGEHEADER}>
-                    Add Header
-                </button>
-                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.TEXT}>
-                    Add Text
-                </button>
-                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LINK}>
-                    Add Link
-                </button>
-                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.LIST}>
-                    Add List
-                </button>
-                <button onClick={this.saveChanges.bind(this)}>
-                    Save
-                </button>
-                <button onClick={this.removeSubpage.bind(this)}>
-                    Remove
-                </button>
+                <EditMenu addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} removeSubpage={this.removeSubpage.bind(this)} />
             </div>
         );
     }
