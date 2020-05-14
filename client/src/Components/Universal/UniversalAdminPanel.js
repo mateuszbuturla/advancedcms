@@ -6,6 +6,11 @@ import PageElementsType from '../../Utils/PageElementTypes';
 import upIcon from '../../img/up.png';
 import downIcon from '../../img/down.png';
 import removeIcon from '../../img/remove.png';
+import headerIcon from '../../img/header.png';
+import textIcon from '../../img/text.png';
+import linkIcon from '../../img/link.png';
+import listIcon from '../../img/list.png';
+import saveIcon from '../../img/save.png';
 
 export const ChangeNameInput = styled.input`
     border: 0px;
@@ -156,33 +161,26 @@ export const ActionButtons = (props) => {
 
 export const EditMenu = (props) => {
 
+    const Img = styled.img`
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+    `;
+
     return (
         <>
             {props.pageConfig.addHeader &&
-                <button onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER}>
-                    Add Header
-            </button>}
-
+                <Img src={headerIcon} onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER} />}
             {props.pageConfig.addText &&
-                <button onClick={props.addField} data-fieldType={PageElementsType.TEXT}>
-                    Add Text
-            </button>}
+                <Img src={textIcon} onClick={props.addField} data-fieldType={PageElementsType.TEXT} />}
             {props.pageConfig.addLink &&
-                <button onClick={props.addField} data-fieldType={PageElementsType.LINK}>
-                    Add Link
-            </button>}
+                <Img src={linkIcon} onClick={props.addField} data-fieldType={PageElementsType.LINK} />}
             {props.pageConfig.addList &&
-                <button onClick={props.addField} data-fieldType={PageElementsType.LIST}>
-                    Add List
-            </button>}
+                <Img src={listIcon} onClick={props.addField} data-fieldType={PageElementsType.LIST} />}
             {props.pageConfig.save &&
-                <button onClick={props.saveChanges}>
-                    Save
-            </button>}
+                <Img src={saveIcon} onClick={props.saveChanges} />}
             {props.pageConfig.remove &&
-                <button onClick={props.removeSubpage}>
-                    Remove
-            </button>}
+                <Img src={removeIcon} onClick={props.removeSubpage} />}
         </>
     );
 }
