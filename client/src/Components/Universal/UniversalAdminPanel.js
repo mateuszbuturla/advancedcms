@@ -158,24 +158,31 @@ export const EditMenu = (props) => {
 
     return (
         <>
-            <button onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER}>
-                Add Header
-            </button>
-            <button onClick={props.addField} data-fieldType={PageElementsType.TEXT}>
-                Add Text
-            </button>
-            <button onClick={props.addField} data-fieldType={PageElementsType.LINK}>
-                Add Link
-            </button>
-            <button onClick={props.addField} data-fieldType={PageElementsType.LIST}>
-                Add List
-            </button>
-            <button onClick={props.saveChanges}>
-                Save
-            </button>
-            <button onClick={props.removeSubpage}>
-                Remove
-            </button>
+            {props.pageConfig.addHeader &&
+                <button onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER}>
+                    Add Header
+            </button>}
+
+            {props.pageConfig.addText &&
+                <button onClick={props.addField} data-fieldType={PageElementsType.TEXT}>
+                    Add Text
+            </button>}
+            {props.pageConfig.addLink &&
+                <button onClick={props.addField} data-fieldType={PageElementsType.LINK}>
+                    Add Link
+            </button>}
+            {props.pageConfig.addList &&
+                <button onClick={props.addField} data-fieldType={PageElementsType.LIST}>
+                    Add List
+            </button>}
+            {props.pageConfig.save &&
+                <button onClick={props.saveChanges}>
+                    Save
+            </button>}
+            {props.pageConfig.remove &&
+                <button onClick={props.removeSubpage}>
+                    Remove
+            </button>}
         </>
     );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { changeElementPositionInArray, checkSubpageNameIsExist } from '../Utils/Common';
 import styledConfig from '../config/styledComponentsConfig';
+import pageConfig from '../config/pageConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
 import { ChangeNameInput, Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
@@ -140,7 +141,7 @@ class EditSubpage extends React.Component {
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />
-                <EditMenu addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} removeSubpage={this.removeSubpage.bind(this)} />
+                <EditMenu pageConfig={pageConfig.editSubpage.editButtons} addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} removeSubpage={this.removeSubpage.bind(this)} />
             </div>
         );
     }
