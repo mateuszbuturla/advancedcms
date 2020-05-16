@@ -3,9 +3,10 @@ import axios from 'axios';
 import { changeElementPositionInArray } from '../Utils/Common';
 import PageElementsType from '../Utils/PageElementTypes';
 import styledConfig from '../config/styledComponentsConfig';
+import pageConfig from '../config/pageConfig';
 
 import { PageHeader } from '../Components/Universal/Universal';
-import { Line } from '../Components/Universal/UniversalAdminPanel';
+import { Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
 
 import EditElement from '../Components/AdminPanel/EditElement';
 
@@ -40,7 +41,7 @@ class EditMainNav extends React.Component {
         this.setState({ links: changeElementPositionInArray(this.state.links, e.target.id, e.target.dataset.direction) })
     }
 
-    handleRemoveLink(e) {
+    handleRemoveElement(e) {
         const { links } = this.state;
         let newLinks = links;
 
@@ -66,7 +67,7 @@ class EditMainNav extends React.Component {
                 elementType={element.type}
                 handleSelectChane={this.handleSelectChane.bind(this)}
                 handleChangeElementPosition={this.handleChangeElementPosition.bind(this)}
-                handleRemoveLink={this.handleRemoveLink.bind(this)}
+                handleRemoveElement={this.handleRemoveElement.bind(this)}
                 value={element.text}
                 id={index}
             />)
@@ -77,12 +78,7 @@ class EditMainNav extends React.Component {
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />
-                <button onClick={this.addField.bind(this)} data-fieldType={PageElementsType.MAINNAVLINK}>
-                    Add Link
-                </button>
-                <button onClick={this.saveChanges.bind(this)}>
-                    Save
-                </button>
+                <EditMenu pageConfig={pageConfig.mainNav.editButtons} addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} />
             </div>
         );
     }

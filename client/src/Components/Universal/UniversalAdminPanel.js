@@ -133,7 +133,7 @@ export const ActionButtons = (props) => {
         background-color: #fff;
         border: 1px solid black;
         top: 0px;
-        right: 20px;
+        right: 0px;
         transform: translateY(-50%);
         opacity: 0;
         transition: ${props => props.config.transition} opacity;
@@ -145,8 +145,8 @@ export const ActionButtons = (props) => {
 
     const Img = styled.img`
         margin-left: 5px;
-        width: 35px;
-        height: 35px;
+        width: 25px;
+        height: 25px;
         cursor: pointer;
     `;
 
@@ -161,6 +161,10 @@ export const ActionButtons = (props) => {
 
 export const EditMenu = (props) => {
 
+    const Container = styled.div`
+        margin-top: ${props => props.config.marginTop.small};
+    `;
+
     const Img = styled.img`
         width: 35px;
         height: 35px;
@@ -168,19 +172,21 @@ export const EditMenu = (props) => {
     `;
 
     return (
-        <>
+        <Container config={styledConfig}>
             {props.pageConfig.addHeader &&
                 <Img src={headerIcon} onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER} />}
             {props.pageConfig.addText &&
                 <Img src={textIcon} onClick={props.addField} data-fieldType={PageElementsType.TEXT} />}
             {props.pageConfig.addLink &&
                 <Img src={linkIcon} onClick={props.addField} data-fieldType={PageElementsType.LINK} />}
+            {props.pageConfig.addMainNavLink &&
+                <Img src={linkIcon} onClick={props.addField} data-fieldType={PageElementsType.MAINNAVLINK} />}
             {props.pageConfig.addList &&
                 <Img src={listIcon} onClick={props.addField} data-fieldType={PageElementsType.LIST} />}
             {props.pageConfig.save &&
                 <Img src={saveIcon} onClick={props.saveChanges} />}
             {props.pageConfig.remove &&
                 <Img src={removeIcon} onClick={props.removeSubpage} />}
-        </>
+        </Container>
     );
 }

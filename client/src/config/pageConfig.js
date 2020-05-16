@@ -10,6 +10,17 @@ module.exports = {
             remove: false,
         },
     },
+    mainNav: {
+        editButtons: {
+            addHeader: false,
+            addText: false,
+            addLink: false,
+            addList: false,
+            addMainNavLink: true,
+            save: true,
+            remove: false,
+        },
+    },
     createSubpage: {
         editButtons: {
             addHeader: true,

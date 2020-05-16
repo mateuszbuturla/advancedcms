@@ -29,7 +29,7 @@ function EditElement(props) {
                 <EditMainNavLink
                     handleSelectChane={props.handleSelectChane}
                     handleChangeElementPosition={props.handleChangeElementPosition}
-                    handleRemoveLink={props.handleRemoveLink}
+                    handleRemoveElement={props.handleRemoveElement}
                     value={props.value}
                     id={props.id}
                 />

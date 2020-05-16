@@ -137,7 +137,7 @@ class EditSubpage extends React.Component {
             <div>
                 <PageHeader config={styledConfig}>Edit Subpage</PageHeader>
                 <ChangeNameInput config={styledConfig} placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
-                {nameIsExist === true && <p>The name already exists</p>}
+                {nameIsExist === true && <p>This name is already exists</p>}
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />

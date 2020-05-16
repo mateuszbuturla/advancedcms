@@ -89,7 +89,7 @@ class CreateSubpage extends React.Component {
             <div>
                 <PageHeader config={styledConfig}>Create Subpage</PageHeader>
                 <ChangeNameInput config={styledConfig} type="text" placeholder="Subpage name" onChange={this.handleNameChange.bind(this)} value={name} />
-                {nameIsExist === true && <p>The name already exists</p>}
+                {nameIsExist === true && <p>This name is already exists</p>}
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />
