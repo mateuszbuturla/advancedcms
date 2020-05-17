@@ -54,4 +54,15 @@ module.exports = {
             remove: false,
         },
     },
+    list: {
+        editButtons: {
+            addHeader: false,
+            addText: true,
+            addLink: true,
+            addList: false,
+            addMainNavLink: false,
+            save: false,
+            remove: false,
+        },
+    },
 }

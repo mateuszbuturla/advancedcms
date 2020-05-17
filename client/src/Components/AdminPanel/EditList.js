@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { changeElementPositionInArray } from '../../Utils/Common';
-import PageElementsType from '../../Utils/PageElementTypes';
 import styledConfig from '../../config/styledComponentsConfig';
+import pageConfig from '../../config/pageConfig';
 
 import EditElement from '../../Components/AdminPanel/EditElement';
 
-import { ActionButtons, FieldTypeText, EditElementTextarea } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea, EditMenu } from '../Universal/UniversalAdminPanel';
 
 const ListContainer = styled.ul`
     margin-left: 40px;
@@ -64,12 +64,7 @@ function EditList(props) {
             <ListContainer>
                 {listElementsRender}
             </ListContainer>
-            <button onClick={addField} data-fieldType={PageElementsType.TEXT}>
-                Add Text
-            </button>
-            <button onClick={addField} data-fieldType={PageElementsType.LINK}>
-                Add Link
-            </button>
+            <EditMenu pageConfig={pageConfig.list.editButtons} addField={addField} ContainerShowOnHover={true} />
             <ActionButtons
                 handleChangeElementPosition={props.handleChangeElementPosition}
                 handleRemoveElement={props.handleRemoveElement}

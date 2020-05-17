@@ -165,14 +165,25 @@ export const EditMenu = (props) => {
         margin-top: ${props => props.config.marginTop.small};
     `;
 
+    const ContainerShowOnHover = styled(Container)`
+        opacity: 0;
+        transition: ${props => props.config.transition} opacity;
+
+        ${EditElementContainer}:hover & {
+            opacity: 1;
+        }
+    `;
+
     const Img = styled.img`
         width: 35px;
         height: 35px;
         cursor: pointer;
     `;
 
+    const ContainerToRender = props.ContainerShowOnHover ? ContainerShowOnHover : Container;
+
     return (
-        <Container config={styledConfig}>
+        <ContainerToRender config={styledConfig}>
             {props.pageConfig.addHeader &&
                 <Img src={headerIcon} onClick={props.addField} data-fieldType={PageElementsType.PAGEHEADER} />}
             {props.pageConfig.addText &&
@@ -187,6 +198,6 @@ export const EditMenu = (props) => {
                 <Img src={saveIcon} onClick={props.saveChanges} />}
             {props.pageConfig.remove &&
                 <Img src={removeIcon} onClick={props.removeSubpage} />}
-        </Container>
+        </ContainerToRender>
     );
 }
