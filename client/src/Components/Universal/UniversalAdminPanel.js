@@ -178,6 +178,7 @@ export const EditMenu = (props) => {
         width: 35px;
         height: 35px;
         cursor: pointer;
+        margin-right: 5px;
     `;
 
     const ContainerToRender = props.ContainerShowOnHover ? ContainerShowOnHover : Container;
