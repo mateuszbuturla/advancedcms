@@ -31,12 +31,14 @@ export const Line = styled.hr`
 export const EditElementContainer = styled.div`
     position: relative;
     width: 100%;
+    margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
     transition: ${props => props.config.transition};
 
     &:hover {
+        padding-top: 20px;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
     }
