@@ -111,7 +111,7 @@ export const EditElementLink = styled.input`
     width: 100%;
     border: 1px solid transparent;
     outline: none;
-    font-size: ${props => props.config.pageHeaderFontSize.small};
+    font-size: ${props => props.config.textFontSize.small};
     color: ${props => props.config.themeColor};
     transition: ${props => props.config.transition};
 
