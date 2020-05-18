@@ -6,7 +6,7 @@ import pageConfig from '../../../../config/pageConfig';
 
 import EditElement from '../EditElement';
 
-import { ActionButtons, FieldTypeText, EditElementTextarea, EditMenu } from '../../../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea, EditMenu } from '../../Styled/UniversalAdminPanel';
 
 const ListContainer = styled.ul`
     margin-left: 40px;

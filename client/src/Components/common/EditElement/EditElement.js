@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PageElementsType from '../../../Utils/PageElementTypes';
 import styledConfig from '../../../config/styledComponentsConfig';
 
-import { EditElementContainer } from '../../Universal/UniversalAdminPanel';
+import { EditElementContainer } from '../Styled/UniversalAdminPanel';
 
 import EditText from './EditText/EditText';
 import EditMainNavLink from './EditMainNavLink/EditMainNavLink';

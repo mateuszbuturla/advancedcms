@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { ActionButtons, FieldTypeText } from '../../../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText } from '../../Styled/UniversalAdminPanel';
 
 function EditMainNavLink(props) {
 

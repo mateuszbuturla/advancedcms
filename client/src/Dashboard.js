@@ -4,7 +4,7 @@ import { getUser, removeUserSession } from './Utils/Common';
 import axios from 'axios';
 import styledConfig from './config/styledComponentsConfig';
 
-import { MainContainer, PageHeader } from './Components/Universal/Universal';
+import { MainContainer, PageHeader } from './Components/common/Styled/Universal';
 
 import EditMainNav from './view/EditMainNav/EditMainNav';
 import EditHomePage from './view/EditHomePage/EditHomePage';

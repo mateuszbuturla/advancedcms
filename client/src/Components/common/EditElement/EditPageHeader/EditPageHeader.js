@@ -1,7 +1,7 @@
 import React from 'react';
 import styledConfig from '../../../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText, EditElementPageHeader } from '../../../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementPageHeader } from '../../Styled/UniversalAdminPanel';
 
 function EditPageHeader(props) {
 

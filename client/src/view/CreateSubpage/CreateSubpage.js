@@ -4,8 +4,8 @@ import { changeElementPositionInArray, checkSubpageNameIsExist } from '../../Uti
 import styledConfig from '../../config/styledComponentsConfig';
 import pageConfig from '../../config/pageConfig';
 
-import { PageHeader } from '../../Components/Universal/Universal';
-import { ChangeNameInput, Line, EditMenu } from '../../Components/Universal/UniversalAdminPanel';
+import { PageHeader } from '../../Components/common/Styled/Universal';
+import { ChangeNameInput, Line, EditMenu } from '../../Components/common/Styled/UniversalAdminPanel';
 
 import EditElement from '../../Components/common/EditElement/EditElement';
 

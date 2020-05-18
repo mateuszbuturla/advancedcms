@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import styledConfig from '../../config/styledComponentsConfig';
-import PageElementsType from '../../Utils/PageElementTypes';
+import styledConfig from '../../../config/styledComponentsConfig';
+import PageElementsType from '../../../Utils/PageElementTypes';
 
-import upIcon from '../../img/up.png';
-import downIcon from '../../img/down.png';
-import removeIcon from '../../img/remove.png';
-import headerIcon from '../../img/header.png';
-import textIcon from '../../img/text.png';
-import linkIcon from '../../img/link.png';
-import listIcon from '../../img/list.png';
-import saveIcon from '../../img/save.png';
+import upIcon from '../../../img/up.png';
+import downIcon from '../../../img/down.png';
+import removeIcon from '../../../img/remove.png';
+import headerIcon from '../../../img/header.png';
+import textIcon from '../../../img/text.png';
+import linkIcon from '../../../img/link.png';
+import listIcon from '../../../img/list.png';
+import saveIcon from '../../../img/save.png';
 
 export const ChangeNameInput = styled.input`
     border: 0px;
