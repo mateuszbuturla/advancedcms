@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { changeElementPositionInArray } from '../Utils/Common';
-import PageElementsType from '../Utils/PageElementTypes';
-import styledConfig from '../config/styledComponentsConfig';
-import pageConfig from '../config/pageConfig';
+import { changeElementPositionInArray } from '../../Utils/Common';
+import PageElementsType from '../../Utils/PageElementTypes';
+import styledConfig from '../../config/styledComponentsConfig';
+import pageConfig from '../../config/pageConfig';
 
-import { PageHeader } from '../Components/Universal/Universal';
-import { Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
+import { PageHeader } from '../../Components/Universal/Universal';
+import { Line, EditMenu } from '../../Components/Universal/UniversalAdminPanel';
 
-import EditElement from '../Components/AdminPanel/EditElement';
+import EditElement from '../../Components/common/EditElement/EditElement';
 
 class EditMainNav extends React.Component {
 

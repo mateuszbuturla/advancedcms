@@ -6,11 +6,11 @@ import styledConfig from './config/styledComponentsConfig';
 
 import { MainContainer, PageHeader } from './Components/Universal/Universal';
 
-import EditMainNav from './AdminPanel/EditMainNav';
-import EditHomePage from './AdminPanel/EditHomePage';
-import CreateSubpage from './AdminPanel/CreateSubpage';
-import EditSubpage from './AdminPanel/EditSubpage';
-import EditFooter from './AdminPanel/EditFooter';
+import EditMainNav from './view/EditMainNav/EditMainNav';
+import EditHomePage from './view/EditHomePage/EditHomePage';
+import CreateSubpage from './view/CreateSubpage/CreateSubpage';
+import EditSubpage from './view/EditSubpage/EditSubpage';
+import EditFooter from './view/EditFooter/EditFooter';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);

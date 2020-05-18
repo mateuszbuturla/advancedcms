@@ -1,7 +1,7 @@
 import React from 'react';
-import styledConfig from '../../config/styledComponentsConfig';
+import styledConfig from '../../../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText, EditElementLink } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementLink } from '../../../Universal/UniversalAdminPanel';
 
 function EditLink(props) {
 

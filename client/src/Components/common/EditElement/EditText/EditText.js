@@ -1,7 +1,7 @@
 import React from 'react';
-import styledConfig from '../../config/styledComponentsConfig';
+import styledConfig from '../../../../config/styledComponentsConfig';
 
-import { ActionButtons, FieldTypeText, EditElementTextarea } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea } from '../../../Universal/UniversalAdminPanel';
 
 function EditText(props) {
 

@@ -1,24 +1,24 @@
 import React from 'react';
 import axios from 'axios';
-import { changeElementPositionInArray } from '../Utils/Common';
-import styledConfig from '../config/styledComponentsConfig';
-import pageConfig from '../config/pageConfig';
+import { changeElementPositionInArray } from '../../Utils/Common';
+import styledConfig from '../../config/styledComponentsConfig';
+import pageConfig from '../../config/pageConfig';
 
-import { PageHeader } from '../Components/Universal/Universal';
-import { Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
+import { PageHeader } from '../../Components/Universal/Universal';
+import { Line, EditMenu } from '../../Components/Universal/UniversalAdminPanel';
 
-import EditElement from '../Components/AdminPanel/EditElement';
+import EditElement from '../../Components/common/EditElement/EditElement';
 
-class EditFooter extends React.Component {
+class EditHomePage extends React.Component {
 
     state = {
         content: [],
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/api/getfooter')
+        axios.get('http://localhost:4000/api/gethomepage')
             .then(response => {
-                this.setState({ content: response.data.footer.elements })
+                this.setState({ content: response.data.homePage.elements })
             }).catch(error => {
                 console.log('error')
             });
@@ -55,7 +55,7 @@ class EditFooter extends React.Component {
     }
 
     saveChanges() {
-        axios.post('http://localhost:4000/api/editfooter', { elements: this.state.content })
+        axios.post('http://localhost:4000/api/edithomepage', { content: this.state.content })
             .then(response => {
                 console.log(response.status)
             }).catch(error => {
@@ -81,14 +81,14 @@ class EditFooter extends React.Component {
 
         return (
             <div>
-                <PageHeader config={styledConfig}>Edit footer</PageHeader>
+                <PageHeader config={styledConfig}>Edit Home Page</PageHeader>
                 <Line config={styledConfig} />
                 {elements}
                 <Line config={styledConfig} />
-                <EditMenu pageConfig={pageConfig.footer.editButtons} addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} />
+                <EditMenu pageConfig={pageConfig.homePage.editButtons} addField={this.addField.bind(this)} saveChanges={this.saveChanges.bind(this)} />
             </div>
         );
     }
 }
 
-export default EditFooter;
+export default EditHomePage;

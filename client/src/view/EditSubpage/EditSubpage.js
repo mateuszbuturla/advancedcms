@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { changeElementPositionInArray, checkSubpageNameIsExist } from '../Utils/Common';
-import styledConfig from '../config/styledComponentsConfig';
-import pageConfig from '../config/pageConfig';
+import { changeElementPositionInArray, checkSubpageNameIsExist } from '../../Utils/Common';
+import styledConfig from '../../config/styledComponentsConfig';
+import pageConfig from '../../config/pageConfig';
 
-import { PageHeader } from '../Components/Universal/Universal';
-import { ChangeNameInput, Line, EditMenu } from '../Components/Universal/UniversalAdminPanel';
+import { PageHeader } from '../../Components/Universal/Universal';
+import { ChangeNameInput, Line, EditMenu } from '../../Components/Universal/UniversalAdminPanel';
 
-import EditElement from '../Components/AdminPanel/EditElement';
+import EditElement from '../../Components/common/EditElement/EditElement';
 
 class EditSubpage extends React.Component {
 

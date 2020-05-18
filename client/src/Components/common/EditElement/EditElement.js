@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import PageElementsType from '../../Utils/PageElementTypes';
-import styledConfig from '../../config/styledComponentsConfig';
+import PageElementsType from '../../../Utils/PageElementTypes';
+import styledConfig from '../../../config/styledComponentsConfig';
 
-import { EditElementContainer } from '../Universal/UniversalAdminPanel';
+import { EditElementContainer } from '../../Universal/UniversalAdminPanel';
 
-import EditText from './EditText';
-import EditMainNavLink from './EditMainNavLink';
-import EditPageHeader from './EditPageHeader';
-import EditLink from './EditLink';
-import EditList from './EditList';
+import EditText from './EditText/EditText';
+import EditMainNavLink from './EditMainNavLink/EditMainNavLink';
+import EditPageHeader from './EditPageHeader/EditPageHeader';
+import EditLink from './EditLink/EditLink';
+import EditList from './EditList/EditList';
 
 function EditElement(props) {
 

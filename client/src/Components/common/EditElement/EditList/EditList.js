@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { changeElementPositionInArray } from '../../Utils/Common';
-import styledConfig from '../../config/styledComponentsConfig';
-import pageConfig from '../../config/pageConfig';
+import { changeElementPositionInArray } from '../../../../Utils/Common';
+import styledConfig from '../../../../config/styledComponentsConfig';
+import pageConfig from '../../../../config/pageConfig';
 
-import EditElement from '../../Components/AdminPanel/EditElement';
+import EditElement from '../EditElement';
 
-import { ActionButtons, FieldTypeText, EditElementTextarea, EditMenu } from '../Universal/UniversalAdminPanel';
+import { ActionButtons, FieldTypeText, EditElementTextarea, EditMenu } from '../../../Universal/UniversalAdminPanel';
 
 const ListContainer = styled.ul`
     margin-left: 40px;
