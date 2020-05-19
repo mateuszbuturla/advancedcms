@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import { getUser, removeUserSession } from './Utils/Common';
 import axios from 'axios';
 import styledConfig from './config/styledComponentsConfig';
 
@@ -15,8 +14,6 @@ import EditFooter from './view/EditFooter/EditFooter';
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);
 
-    const user = getUser();
-
     const getData = () => {
         axios.get('http://localhost:4000/api/getallsubpages')
             .then(response => {
@@ -29,11 +26,6 @@ function Dashboard(props) {
     useEffect(() => {
         getData();
     }, [])
-
-    const handleLogout = () => {
-        removeUserSession();
-        props.history.push('/login');
-    }
 
     const subpagesLinks = subpages.map((element, index) =>
         <div key={index} >
@@ -50,7 +42,7 @@ function Dashboard(props) {
                 <NavLink to="/dashboard/createsubpage">Create subpage</NavLink><br />
                 <a>Subpages</a><br />
                 {subpagesLinks}
-                <input type="button" onClick={handleLogout} value="Logout" />
+                <NavLink to="/">Logout</NavLink><br />
             </aside>
 
             <MainContainer config={styledConfig}>
