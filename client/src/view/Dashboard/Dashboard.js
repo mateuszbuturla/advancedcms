@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import styledConfig from './config/styledComponentsConfig';
+import styledConfig from '../../config/styledComponentsConfig';
 
-import { MainContainer, PageHeader } from './Components/common/Styled/Universal';
+import { MainContainer, PageHeader } from '../../Components/common/Styled/Universal';
 
-import EditMainNav from './view/EditMainNav/EditMainNav';
-import EditHomePage from './view/EditHomePage/EditHomePage';
-import CreateSubpage from './view/CreateSubpage/CreateSubpage';
-import EditSubpage from './view/EditSubpage/EditSubpage';
-import EditFooter from './view/EditFooter/EditFooter';
+import EditMainNav from '../EditMainNav/EditMainNav';
+import EditHomePage from '../EditHomePage/EditHomePage';
+import CreateSubpage from '../CreateSubpage/CreateSubpage';
+import EditSubpage from '../EditSubpage/EditSubpage';
+import EditFooter from '../EditFooter/EditFooter';
 
 function Dashboard(props) {
     const [subpages, setSubpages] = useState([]);

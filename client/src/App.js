@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import Dashboard from './Dashboard';
+import Dashboard from './view/Dashboard/Dashboard';
 import Home from './Home';
 
 import PrivateRoute from './Utils/PrivateRoute';
